@@ -123,21 +123,11 @@ h1, h2 {
 }
 .nav__logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1;
+  align-items: center;
 }
-.nav__logo-mark {
-  font-family: 'Anton', sans-serif;
-  font-size: 26px;
-  letter-spacing: .08em;
-  color: var(--text);
-}
-.nav__logo-sub {
-  font-size: 9px;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 2px;
+.nav__logo-img {
+  height: 48px;
+  width: auto;
 }
 .nav__links {
   display: flex;
@@ -316,12 +306,12 @@ h1, h2 {
   position: absolute; inset: 0;
   background: linear-gradient(180deg, transparent 40%, var(--bg-2) 100%);
 }
-.cat-card__img[data-img="motor"]      { background-image: linear-gradient(135deg, #1f1f1f, #2a2a2a), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=900'); background-blend-mode: multiply; }
-.cat-card__img[data-img="caja"]       { background-image: linear-gradient(135deg, #1f1f1f, #2a2a2a), url('https://images.unsplash.com/photo-1632823471565-1ecdf5c6da77?w=900'); background-blend-mode: multiply; }
-.cat-card__img[data-img="transmision"]{ background-image: linear-gradient(135deg, #1f1f1f, #2a2a2a), url('https://images.unsplash.com/photo-1537984822441-cff330075342?w=900'); background-blend-mode: multiply; }
-.cat-card__img[data-img="direccion"]  { background-image: linear-gradient(135deg, #1f1f1f, #2a2a2a), url('https://images.unsplash.com/photo-1493238792000-8113da705763?w=900'); background-blend-mode: multiply; }
-.cat-card__img[data-img="electrico"]  { background-image: linear-gradient(135deg, #1f1f1f, #2a2a2a), url('https://images.unsplash.com/photo-1605514449459-3ee5f7ed2b5e?w=900'); background-blend-mode: multiply; }
-.cat-card__img[data-img="adhesivos"]  { background-image: linear-gradient(135deg, #1f1f1f, #2a2a2a), url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=900'); background-blend-mode: multiply; }
+.cat-card__img[data-img="motor"]      { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/motor.jpeg'); }
+.cat-card__img[data-img="caja"]       { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/caja.jpg'); }
+.cat-card__img[data-img="transmision"]{ background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/trasmision.jpg'); }
+.cat-card__img[data-img="direccion"]  { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/direccion.jpg'); }
+.cat-card__img[data-img="electrico"]  { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/electrico.jpg'); }
+.cat-card__img[data-img="adhesivos"]  { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/pegantes y adesivos.jpeg'); }
 
 .cat-card__body {
   padding: 32px;
@@ -390,9 +380,9 @@ h1, h2 {
   background-position: center;
   filter: contrast(1.05) saturate(.85);
 }
-.feature__img[data-img="overhaul"] { background-image: linear-gradient(135deg, rgba(10,10,10,.55), rgba(59,130,246,.18)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1200'); }
-.feature__img[data-img="brands"]   { background-image: linear-gradient(135deg, rgba(10,10,10,.6), rgba(59,130,246,.22)), url('https://images.unsplash.com/photo-1507136566006-cfc505b114fc?w=1200'); }
-.feature__img[data-img="advice"]   { background-image: linear-gradient(135deg, rgba(10,10,10,.55), rgba(59,130,246,.18)), url('https://images.unsplash.com/photo-1632823469850-2f77dd9c7f93?w=1200'); }
+.feature__img[data-img="overhaul"] { background-image: linear-gradient(135deg, rgba(10,10,10,.55), rgba(59,130,246,.18)), url('assets/img/motor.jpeg'); }
+.feature__img[data-img="brands"]   { background-image: linear-gradient(135deg, rgba(10,10,10,.6), rgba(59,130,246,.22)), url('assets/img/trasmision.jpg'); }
+.feature__img[data-img="advice"]   { background-image: linear-gradient(135deg, rgba(10,10,10,.55), rgba(59,130,246,.18)), url('assets/img/caja.jpg'); }
 
 .feature__copy h2 {
   font-size: clamp(32px, 5vw, 64px);
@@ -424,23 +414,28 @@ h1, h2 {
 }
 
 .brands {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 28px;
-  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
 }
-.brands span {
-  font-family: 'Anton', sans-serif;
-  font-size: 22px;
-  letter-spacing: .08em;
-  color: var(--muted);
-  padding: 8px 14px;
+.brands img {
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  padding: 10px 14px;
   border: 1px solid var(--line);
-  transition: all .2s var(--ease);
+  background: rgba(255,255,255,.04);
+  filter: grayscale(1) brightness(1.8);
+  transition: all .3s var(--ease);
 }
-.brands span:hover {
-  color: var(--accent);
+.brands img:hover {
+  filter: grayscale(0) brightness(1);
   border-color: var(--accent);
+}
+@media (max-width: 620px) {
+  .brands { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 880px) {
