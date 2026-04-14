@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contacto — La Casa del Overhaul</title>
+<meta name="description" content="Contacta a La Casa del Overhaul. Cotiza repuestos diésel por WhatsApp, correo o visítanos en Bogotá, Engativá." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+    </a>
+    <nav class="nav__links">
+      <a href="index.html#productos">Productos</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html" class="is-active">Contacto</a>
+    </nav>
+    <a href="#formulario" class="btn btn--primary nav__cta">Cotizar ahora</a>
+    <button class="nav__burger" aria-label="Menú">&#9776;</button>
+  </div>
+</header>
+
+<!-- ============ PAGE HERO ============ -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Contacto</span>
+    <h1 class="page-hero__title">HABLEMOS DE<br/>TU <span class="accent">MOTOR.</span></h1>
+    <p class="page-hero__sub">Cotización en menos de 24 horas. Atendemos a toda Colombia por WhatsApp, correo o en nuestra bodega en Bogotá.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACTO GRID ============ -->
+<section class="contacto">
+  <div class="container contacto__grid">
+
+    <!-- COLUMNA IZQUIERDA: Info -->
+    <div class="contacto__info">
+      <div class="contacto__card">
+        <span class="contacto__icon">&#128222;</span>
+        <div>
+          <h3>WhatsApp / Teléfono</h3>
+          <a href="https://wa.me/573212101283">+57 321 210 1283</a>
+          <p>Respuesta rápida por WhatsApp. Envíanos la referencia o foto de la pieza que necesitas.</p>
+        </div>
+      </div>
+
+      <div class="contacto__card">
+        <span class="contacto__icon">&#9993;</span>
+        <div>
+          <h3>Correo electrónico</h3>
+          <a href="mailto:ventaslacasadeloverhaul@gmail.com">ventaslacasadeloverhaul@gmail.com</a>
+          <p>Para cotizaciones formales, pedidos grandes o solicitudes de crédito.</p>
+        </div>
+      </div>
+
+      <div class="contacto__card">
+        <span class="contacto__icon">&#128205;</span>
+        <div>
+          <h3>Visítanos en Bogotá</h3>
+          <p class="contacto__address">Parque Empresarial El Dorado<br/>Tv. 93 #53-32, Bodega 10<br/>Engativá, Bogotá</p>
+          <p>Lunes a viernes · 8:00 AM — 5:30 PM<br/>Sábados · 8:00 AM — 1:00 PM</p>
+        </div>
+      </div>
+
+      <div class="contacto__card">
+        <span class="contacto__icon">&#128247;</span>
+        <div>
+          <h3>Redes sociales</h3>
+          <div class="contacto__social">
+            <a href="https://www.instagram.com/lacasadeloverhaul/" target="_blank" rel="noopener">Instagram @lacasadeloverhaul</a>
+            <a href="https://www.tiktok.com/@somoslacasadeloverhaul" target="_blank" rel="noopener">TikTok @somoslacasadeloverhaul</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUMNA DERECHA: Formulario -->
+    <div class="contacto__form-wrap" id="formulario">
+      <div class="contacto__form-box">
+        <h2>SOLICITA TU<br/><span class="accent">COTIZACIÓN</span></h2>
+        <p>Completa el formulario y te respondemos en menos de 24 horas.</p>
+
+        <form class="form" id="contactForm" onsubmit="return handleSubmit(event)">
+          <div class="form__group">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+          </div>
+
+          <div class="form__row">
+            <div class="form__group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" />
+            </div>
+            <div class="form__group">
+              <label for="telefono">Teléfono / WhatsApp</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" />
+            </div>
+          </div>
+
+          <div class="form__group">
+            <label for="vehiculo">Vehículo / Motor</label>
+            <input type="text" id="vehiculo" name="vehiculo" placeholder="Ej: Hino FC 2025, motor J05E" />
+          </div>
+
+          <div class="form__group">
+            <label for="mensaje">¿Qué repuestos necesitas?</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Describe las piezas que necesitas, referencias o adjunta fotos por WhatsApp."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg form__submit">Enviar cotización</button>
+        </form>
+
+        <div class="form__success" id="formSuccess" style="display:none;">
+          <span class="form__success-icon">&#10003;</span>
+          <h3>Mensaje enviado</h3>
+          <p>Te responderemos en menos de 24 horas. Si necesitas respuesta inmediata, escríbenos por <a href="https://wa.me/573212101283">WhatsApp</a>.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ MAPA ============ -->
+<section class="mapa">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6!2d-74.1275!3d4.6945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b5a39f!2sParque+Empresarial+El+Dorado!5e0!3m2!1ses!2sco!4v1"
+    width="100%"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación La Casa del Overhaul">
+  </iframe>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <div class="nav__logo">
+        <img src="assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+      </div>
+      <p class="footer__tag">Precisión y fuerza para tu motor diésel.</p>
+    </div>
+    <div>
+      <h4>Catálogo</h4>
+      <a href="index.html#productos">Motor</a>
+      <a href="index.html#productos">Caja</a>
+      <a href="index.html#productos">Transmisión</a>
+      <a href="index.html#productos">Dirección</a>
+      <a href="index.html#productos">Eléctrico</a>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Visítanos</h4>
+      <p>Parque Empresarial El Dorado<br/>Tv. 93 #53-32, Bodega 10<br/>Engativá, Bogotá</p>
+      <p>+57 321 210 1283<br/>ventaslacasadeloverhaul@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>&copy; 2026 La Casa del Overhaul</span>
+    <span>Bogotá, Colombia</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('contactForm');
+  var success = document.getElementById('formSuccess');
+  form.style.display = 'none';
+  success.style.display = 'flex';
+  return false;
+}
+</script>
+</body>
+</html>
