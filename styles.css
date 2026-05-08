@@ -1,14 +1,14 @@
 /* ============ TOKENS ============ */
 :root {
-  --bg: #3f3f48;
-  --bg-2: #4a4a54;
-  --bg-3: #555560;
-  --steel: #5c5c68;
-  --steel-2: #646470;
-  --line: #5a5a66;
-  --text: #f4f4f4;
-  --muted: #9a9a9a;
-  --accent: #3b82f6;        /* azul LCDO */
+  --bg: #0f172a;        /* slate-900 — azul marino oscuro */
+  --bg-2: #1e293b;      /* slate-800 */
+  --bg-3: #263346;      /* entre slate-800 y 700 */
+  --steel: #334155;     /* slate-700 */
+  --steel-2: #475569;   /* slate-600 */
+  --line: #1e3a5f;      /* separador azul sutil */
+  --text: #f1f5f9;      /* slate-100 */
+  --muted: #94a3b8;     /* slate-400 — azul grisáceo */
+  --accent: #3b82f6;    /* azul LCDO */
   --accent-2: #60a5fa;
   --accent-rgb: 59, 130, 246;
   --maxw: 1280px;
@@ -338,7 +338,7 @@ h1, h2 {
 
 /* ============ STATS ============ */
 .stats {
-  background: var(--bg-2);
+  background: linear-gradient(180deg, #080e24 0%, var(--bg-2) 100%);
   border-bottom: 1px solid var(--line);
 }
 .stats__grid {
@@ -577,7 +577,7 @@ h1, h2 {
   border-top: 1px solid var(--line);
 }
 .cta__box {
-  background: linear-gradient(135deg, #161616 0%, #1d1d1d 100%);
+  background: linear-gradient(135deg, #050d1f 0%, #0c1a32 100%);
   border: 1px solid var(--line);
   padding: 64px;
   display: grid;
@@ -620,7 +620,7 @@ h1, h2 {
 
 /* ============ FOOTER ============ */
 .footer {
-  background: #060606;
+  background: #020c1b;
   border-top: 1px solid var(--line);
   padding: 80px 0 28px;
 }
@@ -671,7 +671,7 @@ h1, h2 {
 /* ============ PAGE HERO (subpages) ============ */
 .page-hero {
   padding: 160px 0 100px;
-  background: var(--bg);
+  background: linear-gradient(180deg, #05082e 0%, var(--bg) 100%);
   border-bottom: 1px solid var(--line);
   position: relative;
   overflow: hidden;
