@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
 
@@ -31,24 +31,37 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero__media" aria-hidden="true"></div>
-  <div class="hero__overlay"></div>
+  <div class="hero__overlay" aria-hidden="true"></div>
   <div class="hero__content">
-    <span class="eyebrow">Bogotá · La Casa del Overhaul</span>
     <h1 class="hero__title">
-      +30 AÑOS DE<br />
-      EXPERIENCIA EN<br />
-      MOTORES <span class="accent">DIÉSEL</span>
+      <span class="hero__line">Overhaul.</span>
+      <span class="hero__line">Motores.</span>
+      <span class="hero__line hero__line--accent">Diésel.</span>
     </h1>
     <p class="hero__sub">
-      Overhauls completos, repuestos originales y asesoría técnica para flotas, talleres y particulares. Una sola casa para todo lo que tu motor necesita.
+      Más de 30 años de experiencia en repuestos para motores diésel. Overhauls completos, marcas líderes y asesoría técnica para flotas, talleres y transportadores.
     </p>
     <div class="hero__actions">
       <a href="#productos" class="btn btn--primary btn--lg">Ver repuestos</a>
       <a href="contacto.html" class="btn btn--ghost btn--lg">Hablar con un experto →</a>
     </div>
   </div>
-  <div class="hero__scroll">SCROLL</div>
+  <div class="hero__visual" aria-hidden="true">
+    <div class="hero__card hero__card--1">
+      <img src="assets/img/motor.jpeg" alt="Motor diésel" />
+      <span>Motor</span>
+    </div>
+    <div class="hero__card hero__card--2">
+      <img src="assets/img/caja.jpg" alt="Caja" />
+      <span>Caja</span>
+    </div>
+    <div class="hero__card hero__card--3">
+      <img src="assets/img/trasmision.jpg" alt="Transmisión" />
+      <span>Transmisión</span>
+    </div>
+  </div>
 </section>
 
 <!-- ============ STATS ============ -->
@@ -284,6 +297,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>
