@@ -19,8 +19,8 @@ targets.forEach((el) => {
 // Nav background on scroll
 const nav = document.querySelector('.nav');
 const onScroll = () => {
-  if (window.scrollY > 20) nav.style.borderBottomColor = 'rgba(59,130,246,.30)';
-  else nav.style.borderBottomColor = '';
+  if (window.scrollY > 20) nav.style.borderBottomColor = '#bfdbfe';
+  else nav.style.borderBottomColor = '#e2e8f0';
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 
