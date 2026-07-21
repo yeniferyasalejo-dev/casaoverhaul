@@ -79,6 +79,20 @@ const onScroll = () => {
 };
 window.addEventListener('scroll', onScroll, { passive: true });
 
+// ============ WHATSAPP: APP EN MÓVIL ============
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href*="wa.me"]');
+  if (!a) return;
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (isMobile) {
+    e.preventDefault();
+    const url = new URL(a.href);
+    const phone = url.pathname.replace('/', '');
+    const text = url.searchParams.get('text') || '';
+    window.location.href = 'whatsapp://send?phone=' + phone + '&text=' + encodeURIComponent(text);
+  }
+});
+
 // ============ MOBILE MENU ============
 const burger = document.querySelector('.nav__burger');
 const links  = document.querySelector('.nav__links');
