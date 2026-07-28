@@ -10,6 +10,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../assets/img/Thumb Piston.png" />
 <link rel="stylesheet" href="../styles.css?v=12" />
+<style>
+.prod-card { cursor: pointer; }
+.prod-card__hover {
+  position: absolute; inset: 0;
+  background: rgba(30,77,156,0.72);
+  color: #fff; font-weight: 700; font-size: 15px;
+  letter-spacing: .08em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s;
+}
+.prod-card:hover .prod-card__hover { opacity: 1; }
+
+.prod-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 1000;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.prod-modal-overlay.is-open { display: flex; }
+.prod-modal {
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 20px; max-width: 780px; width: 100%;
+  display: none; grid-template-columns: 1fr 1fr; gap: 0;
+  overflow: hidden; position: relative;
+  animation: modalIn .25s var(--ease);
+}
+@keyframes modalIn { from { opacity:0; transform: scale(.95); } to { opacity:1; transform: scale(1); } }
+.prod-modal__close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,.15); border: none; color: #fff;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 16px;
+  cursor: pointer; z-index: 2;
+}
+.prod-modal__img {
+  background: #fff; display: flex;
+  align-items: center; justify-content: center;
+  padding: 24px; min-height: 300px;
+}
+.prod-modal__img img { max-width: 100%; max-height: 280px; object-fit: contain; }
+.prod-modal__info { padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; }
+.prod-modal__title {
+  font-family: var(--font-title); font-size: 24px;
+  text-transform: uppercase; color: var(--text); margin: 0;
+}
+.prod-modal__specs { color: var(--muted); font-size: 15px; line-height: 1.7; padding-left: 18px; margin: 0; }
+.prod-modal__specs li { margin-bottom: 4px; }
+@media (max-width: 620px) {
+  .prod-modal { grid-template-columns: 1fr; }
+  .prod-modal__img { min-height: 200px; }
+}
+</style>
 </head>
 <body>
 
