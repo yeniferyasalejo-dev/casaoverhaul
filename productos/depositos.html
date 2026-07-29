@@ -75,12 +75,12 @@
   display: inline-flex; align-items: center; gap: 6px;
   padding: 8px 20px; border-radius: 999px; font-size: 13px;
   font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-  text-decoration: none; border: 2px solid var(--accent);
-  color: var(--accent); transition: background .2s, color .2s;
+  text-decoration: none; border: 2px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.65); transition: background .2s, color .2s, border-color .2s;
 }
 .subcat-nav a.is-active,
 .subcat-nav a:hover {
-  background: var(--accent); color: #fff;
+  background: #fff; color: var(--accent); border-color: #fff;
 }
 </style>
 </head>
@@ -118,6 +118,8 @@
       <span class="subcat-nav__label">Enfriamiento /</span>
       <a href="enfriamiento.html">Patines Tensores</a>
       <a href="depositos.html" class="is-active">Depósitos de Refrigerante</a>
+      <a href="tapas.html">Tapas</a>
+      <a href="ventiladores.html">Ventiladores</a>
     </div>
 
     <div class="sedes__grid">
