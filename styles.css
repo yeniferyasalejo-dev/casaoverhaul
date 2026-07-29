@@ -485,6 +485,8 @@ h3, h4 {
 .cat-card__img[data-img="electrico"]  { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/electrico.jpg'); }
 .cat-card__img[data-img="adhesivos"]  { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/SILICONA LCDO PAGINA WEB (1).png'); }
 .cat-card__img[data-img="enfriamiento"]{ background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/PB-89421.png'); }
+.cat-card__img[data-img="depositos"]  { background-image: linear-gradient(135deg, rgba(10,10,10,.4), rgba(10,10,10,.6)), url('assets/img/Depositos/MACK-VOLVO DF-A9014.png'); }
+.cat-card__sub { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin: -8px 0 4px; }
 
 .cat-card__body {
   padding: 32px;

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../assets/img/Thumb Piston.png" />
-<link rel="stylesheet" href="../styles.css?v=12" />
+<link rel="stylesheet" href="../styles.css?v=13" />
 <style>
 .prod-card { cursor: pointer; }
 .prod-card__hover {
@@ -60,6 +60,24 @@
   .prod-modal { grid-template-columns: 1fr; }
   .prod-modal__img { min-height: 200px; }
 }
+.subcat-nav {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.subcat-nav__label {
+  font-family: var(--font-title); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); align-self: center; margin-right: 4px;
+}
+.subcat-nav a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 20px; border-radius: 999px; font-size: 13px;
+  font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border: 2px solid var(--accent);
+  color: var(--accent); transition: background .2s, color .2s;
+}
+.subcat-nav a.is-active,
+.subcat-nav a:hover { background: var(--accent); color: #fff; }
 </style>
 </head>
 <body>
@@ -87,9 +105,16 @@
   <div class="container">
     <header class="section-head">
       <span class="eyebrow"><a href="../productos.html" style="color:inherit; text-decoration:none;">← Productos</a></span>
-      <h2 class="section-title">ENFRIAMIENTO</h2>
+      <h2 class="section-title">ENFRIAMIENTO —<br/>PATINES TENSORES</h2>
       <p class="section-sub">Patines tensores para motores Cummins, Detroit Diesel, Mack, Volvo, Caterpillar, Mercedes-Benz y más.</p>
     </header>
+
+    <!-- Subcategory nav -->
+    <div class="subcat-nav">
+      <span class="subcat-nav__label">Enfriamiento /</span>
+      <a href="enfriamiento.html" class="is-active">Patines Tensores</a>
+      <a href="depositos.html">Depósitos de Refrigerante</a>
+    </div>
 
     <h3 style="font-family: var(--font-title); font-size: 18px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px;">Patín Tensor</h3>
     <div class="sedes__grid">
