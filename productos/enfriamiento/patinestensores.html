@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../../assets/img/Thumb Piston.png" />
-<link rel="stylesheet" href="../../styles.css?v=13" />
+<link rel="stylesheet" href="../../styles.css?v=14" />
 <style>
 .prod-card { cursor: pointer; }
 .prod-card__hover {
@@ -949,13 +949,16 @@
 <script src="../../script.js?v=3"></script>
 <script>
 function openModal(id) {
-  document.getElementById('modal-overlay').classList.add('is-open');
-  document.getElementById(id).classList.add('is-open');
+  var overlay = document.getElementById('modal-overlay');
+  overlay.querySelectorAll('.prod-modal').forEach(function(m) { m.style.display = 'none'; });
+  document.getElementById(id).style.display = 'grid';
+  overlay.classList.add('is-open');
   document.body.style.overflow = 'hidden';
 }
 function closeModal() {
-  document.querySelectorAll('.prod-modal.is-open').forEach(m => m.classList.remove('is-open'));
-  document.getElementById('modal-overlay').classList.remove('is-open');
+  var overlay = document.getElementById('modal-overlay');
+  overlay.querySelectorAll('.prod-modal').forEach(function(m) { m.style.display = 'none'; });
+  overlay.classList.remove('is-open');
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
