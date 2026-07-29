@@ -101,6 +101,15 @@ h3, h4 {
 
 .section-head { margin-bottom: 56px; max-width: 720px; }
 
+/* ============ BREADCRUMB ============ */
+.breadcrumb { margin-bottom: 12px; }
+.breadcrumb ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.breadcrumb li { display: flex; align-items: center; gap: 4px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-family: var(--font-title); }
+.breadcrumb li:not(:last-child)::after { content: "/"; color: rgba(255,255,255,.3); margin-left: 4px; }
+.breadcrumb a { color: rgba(255,255,255,.55); text-decoration: none; transition: color .2s; }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb li:last-child { color: rgba(255,255,255,.9); font-weight: 700; }
+
 /* ============ BUTTONS ============ */
 .btn {
   display: inline-flex;
