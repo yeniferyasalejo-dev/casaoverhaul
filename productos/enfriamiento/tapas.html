@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tapas de Tanque y Aceite — Enfriamiento | La Casa del Overhaul</title>
+<meta name="description" content="Tapas de tanque de refrigerante, compensación y llenado de aceite para Freightliner, International, Kenworth, Mack, Volvo, Cummins y más. Marcas Power Systems y PAI." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../../assets/img/Thumb Piston.png" />
+<link rel="stylesheet" href="../../styles.css?v=13" />
+<style>
+.prod-card { cursor: pointer; }
+.prod-card__hover {
+  position: absolute; inset: 0;
+  background: rgba(30,77,156,0.72);
+  color: #fff; font-weight: 700; font-size: 15px;
+  letter-spacing: .08em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s;
+}
+.prod-card:hover .prod-card__hover { opacity: 1; }
+
+.prod-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 1000;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.prod-modal-overlay.is-open { display: flex; }
+.prod-modal {
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 20px; max-width: 780px; width: 100%;
+  display: none; grid-template-columns: 1fr 1fr; gap: 0;
+  overflow: hidden; position: relative;
+  animation: modalIn .25s var(--ease);
+}
+@keyframes modalIn { from { opacity:0; transform: scale(.95); } to { opacity:1; transform: scale(1); } }
+.prod-modal__close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,.15); border: none; color: #fff;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 16px;
+  cursor: pointer; z-index: 2;
+}
+.prod-modal__img {
+  background: #fff; display: flex;
+  align-items: center; justify-content: center;
+  padding: 24px; min-height: 300px;
+}
+.prod-modal__img img { max-width: 100%; max-height: 280px; object-fit: contain; }
+.prod-modal__info { padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; }
+.prod-modal__title {
+  font-family: var(--font-title); font-size: 22px;
+  text-transform: uppercase; color: var(--text); margin: 0;
+}
+.prod-modal__specs { color: var(--muted); font-size: 15px; line-height: 1.7; padding-left: 18px; margin: 0; }
+.prod-modal__specs li { margin-bottom: 4px; }
+@media (max-width: 620px) {
+  .prod-modal { grid-template-columns: 1fr; }
+  .prod-modal__img { min-height: 200px; }
+}
+
+/* Subcategory nav */
+.subcat-nav {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.subcat-nav__label {
+  font-family: var(--font-title); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); align-self: center; margin-right: 4px;
+}
+.subcat-nav a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 20px; border-radius: 999px; font-size: 13px;
+  font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border: 2px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.65); transition: background .2s, color .2s, border-color .2s;
+}
+.subcat-nav a.is-active,
+.subcat-nav a:hover { background: #fff; color: var(--accent); border-color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="../../index.html" class="nav__logo">
+      <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+    </a>
+    <a href="https://checkout.wompi.co/l/KP2qmb" target="_blank" rel="noopener" class="btn--pago"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pago en línea</a>
+    <nav class="nav__links">
+      <a href="../../productos.html" class="is-active">Productos</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../contacto.html">Contacto</a>
+    </nav>
+    <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+m%C3%A1s+informaci%C3%B3n+sobre+La+Casa+del+Overhaul+https%3A%2F%2Fwww.lcdo.com.co%2F" target="_blank" rel="noopener" class="btn btn--whatsapp nav__cta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+    <button class="nav__burger" aria-label="Menú">&#9776;</button>
+  </div>
+</header>
+
+<!-- ============ PRODUCTOS ============ -->
+<section class="cats">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow"><a href="../../productos.html" style="color:inherit; text-decoration:none;">← Productos</a></span>
+      <h2 class="section-title">ENFRIAMIENTO —<br/>TAPAS</h2>
+      <p class="section-sub">Tapas de tanque de refrigerante, compensación y llenado de aceite para Freightliner, International, Kenworth, Mack, Volvo, Cummins y más.</p>
+    </header>
+
+    <!-- Subcategory nav -->
+    <div class="subcat-nav">
+      <span class="subcat-nav__label">Enfriamiento /</span>
+      <a href="patinestensores.html">Patines Tensores</a>
+      <a href="depositos.html">Depósitos de Refrigerante</a>
+      <a href="tapas.html" class="is-active">Tapas</a>
+      <a href="ventiladores.html">Ventiladores</a>
+    </div>
+
+    <div class="sedes__grid">
+
+      <!-- P1 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-1')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS 740030.png" alt="TAPA DE TANQUE 15 LBS" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 15 LBS</h3>
+          <p class="sede-card__role">PAI — Ref: 740030</p>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-2')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D059.png" alt="TAPA DE TANQUE 15 LBS" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 15 LBS</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D059</p>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-3')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS 740031.png" alt="TAPA DE TANQUE 15 PSI" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 15 PSI</h3>
+          <p class="sede-card__role">PAI — Ref: 740031</p>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-4')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D227.png" alt="TAPA DE TANQUE 15 PSI" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 15 PSI</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D227</p>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-5')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D052.png" alt="TAPA DE TANQUE" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D052</p>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-6')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D228.png" alt="TAPA DE TANQUE" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D228</p>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-7')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS ERC-8393.png" alt="TAPA DEL TANQUE DE COMPENSACIÓN 10 PSIG" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DEL TANQUE DE COMPENSACIÓN 10 PSIG</h3>
+          <p class="sede-card__role">PAI — Ref: ERC-8393</p>
+        </div>
+      </div>
+
+      <!-- P8 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-8')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS 481870.png" alt="TAPA DE TANQUE 15 PSI" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 15 PSI</h3>
+          <p class="sede-card__role">PAI — Ref: 481870</p>
+        </div>
+      </div>
+
+      <!-- P9 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-9')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D004-3.png" alt="TAPA DE TANQUE 15 PSI" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 15 PSI</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D004-3</p>
+        </div>
+      </div>
+
+      <!-- P10 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-10')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D004.png" alt="TAPA DE TANQUE 20 PSI" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 20 PSI</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D004</p>
+        </div>
+      </div>
+
+      <!-- P11 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-11')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D259.png" alt="TAPA DE TANQUE" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D259</p>
+        </div>
+      </div>
+
+      <!-- P12 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-12')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D260.png" alt="TAPA DE TANQUE" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D260</p>
+        </div>
+      </div>
+
+      <!-- P13 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-13')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D229.png" alt="TAPA DE TANQUE" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D229</p>
+        </div>
+      </div>
+
+      <!-- P14 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-14')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-A9059.png" alt="TAPA DE TANQUE" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-A9059</p>
+        </div>
+      </div>
+
+      <!-- P15 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-15')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS ERC-8394.png" alt="TAPA DEL TANQUE DE REFRIGERANTE MACK" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DEL TANQUE DE REFRIGERANTE MACK</h3>
+          <p class="sede-card__role">PAI — Ref: ERC-8394</p>
+        </div>
+      </div>
+
+      <!-- P16 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-16')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D149.png" alt="TAPA DE TANQUE 10 LBS" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE 10 LBS</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D149</p>
+        </div>
+      </div>
+
+      <!-- P17 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-17')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS 730425.png" alt="TAPA 16 PSIG" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA 16 PSIG</h3>
+          <p class="sede-card__role">PAI — Ref: 730425</p>
+        </div>
+      </div>
+
+      <!-- P18 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-18')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS 740028.png" alt="TAPA 16 LBS" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA 16 LBS</h3>
+          <p class="sede-card__role">PAI — Ref: 740028</p>
+        </div>
+      </div>
+
+      <!-- P19 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-19')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS PB-D180.png" alt="TAPA DE TANQUE" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE TANQUE</h3>
+          <p class="sede-card__role">POWER SYSTEMS — Ref: PB-D180</p>
+        </div>
+      </div>
+
+      <!-- P20 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-20')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS 141380.png" alt="TAPA LLENADO ACEITE CUMMINS 4B / ISB / ISD / ISF / QSB" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA LLENADO ACEITE CUMMINS 4B / ISB / ISD / ISF / QSB</h3>
+          <p class="sede-card__role">PAI — Ref: 141380</p>
+        </div>
+      </div>
+
+      <!-- P21 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-21')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS EFC-8551.png" alt="TAPA LLENADO ACEITE CUMMINS 2"" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA LLENADO ACEITE CUMMINS 2"</h3>
+          <p class="sede-card__role">PAI — Ref: EFC-8551</p>
+        </div>
+      </div>
+
+      <!-- P22 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-22')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS EFC-8552.png" alt="TAPA LLENADO ACEITE CUMMINS 1"" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA LLENADO ACEITE CUMMINS 1"</h3>
+          <p class="sede-card__role">PAI — Ref: EFC-8552</p>
+        </div>
+      </div>
+
+      <!-- P23 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-23')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPAS EM83920.png" alt="TAPA DE COMBUSTIBLE CON BLOQUEO" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA DE COMBUSTIBLE CON BLOQUEO</h3>
+          <p class="sede-card__role">PAI — Ref: EM83920</p>
+        </div>
+      </div>
+
+      <!-- P24 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-24')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Tapas/TAPA 20 LBS - 05-17223-002.png" alt="TAPA 20 LBS" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <h3 class="sede-card__name">TAPA 20 LBS</h3>
+          <p class="sede-card__role">PAI — Ref: 740029</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODALS ============ -->
+<div class="prod-modal-overlay" id="modal-overlay" onclick="if(event.target.id==='modal-overlay')closeModal()">
+  <div class="prod-modal" id="modal-1" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS 740030.png" alt="TAPA DE TANQUE 15 LBS" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 15 LBS</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 05-20763-001</li>
+        <li><strong>Ref Alterna:</strong> 740030</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+15+LBS" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-2" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D059.png" alt="TAPA DE TANQUE 15 LBS" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 15 LBS</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 05-20763-001</li>
+        <li><strong>Ref Alterna:</strong> PB-D059</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+15+LBS" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-3" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS 740031.png" alt="TAPA DE TANQUE 15 PSI" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 15 PSI</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 01-07707-801</li>
+        <li><strong>Ref Alterna:</strong> 740031</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+15+PSI" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-4" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D227.png" alt="TAPA DE TANQUE 15 PSI" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 15 PSI</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 01-07707-801</li>
+        <li><strong>Ref Alterna:</strong> PB-D227</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+15+PSI" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-5" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D052.png" alt="TAPA DE TANQUE" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 1307627</li>
+        <li><strong>Ref Alterna:</strong> PB-D052</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-6" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D228.png" alt="TAPA DE TANQUE" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 20968835</li>
+        <li><strong>Ref Alterna:</strong> PB-D228</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-7" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS ERC-8393.png" alt="TAPA DEL TANQUE DE COMPENSACIÓN 10 PSIG" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DEL TANQUE DE COMPENSACIÓN 10 PSIG</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 2039390C1</li>
+        <li><strong>Ref Alterna:</strong> ERC-8393</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DEL+TANQUE+DE+COMPENSACIÓN+10+PSIG" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-8" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS 481870.png" alt="TAPA DE TANQUE 15 PSI" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 15 PSI</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 3578833C3</li>
+        <li><strong>Ref Alterna:</strong> 481870</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+15+PSI" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-9" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D004-3.png" alt="TAPA DE TANQUE 15 PSI" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 15 PSI</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 3578833C3</li>
+        <li><strong>Ref Alterna:</strong> PB-D004-3</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+15+PSI" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-10" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D004.png" alt="TAPA DE TANQUE 20 PSI" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 20 PSI</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 1635000006</li>
+        <li><strong>Ref Alterna:</strong> PB-D004</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+20+PSI" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-11" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D259.png" alt="TAPA DE TANQUE" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE</h2>
+      <ul class="prod-modal__specs">
+        
+        <li><strong>Ref Alterna:</strong> PB-D259</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-12" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D260.png" alt="TAPA DE TANQUE" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 14-17928-000</li>
+        <li><strong>Ref Alterna:</strong> PB-D260</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-13" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D229.png" alt="TAPA DE TANQUE" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 29-070700</li>
+        <li><strong>Ref Alterna:</strong> PB-D229</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-14" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-A9059.png" alt="TAPA DE TANQUE" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE</h2>
+      <ul class="prod-modal__specs">
+        
+        <li><strong>Ref Alterna:</strong> PB-A9059</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-15" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS ERC-8394.png" alt="TAPA DEL TANQUE DE REFRIGERANTE MACK" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DEL TANQUE DE REFRIGERANTE MACK</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 3150-063415A</li>
+        <li><strong>Ref Alterna:</strong> ERC-8394</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DEL+TANQUE+DE+REFRIGERANTE+MACK" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-16" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D149.png" alt="TAPA DE TANQUE 10 LBS" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE 10 LBS</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> A6955017015</li>
+        <li><strong>Ref Alterna:</strong> PB-D149</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE+10+LBS" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-17" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS 730425.png" alt="TAPA 16 PSIG" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA 16 PSIG</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> RC1630</li>
+        <li><strong>Ref Alterna:</strong> 730425</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+16+PSIG" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-18" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS 740028.png" alt="TAPA 16 LBS" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA 16 LBS</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 05-17223-003</li>
+        <li><strong>Ref Alterna:</strong> 740028</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+16+LBS" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-19" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS PB-D180.png" alt="TAPA DE TANQUE" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE TANQUE</h2>
+      <ul class="prod-modal__specs">
+        
+        <li><strong>Ref Alterna:</strong> PB-D180</li>
+        <li><strong>Marca:</strong> POWER SYSTEMS</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+TANQUE" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-20" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS 141380.png" alt="TAPA LLENADO ACEITE CUMMINS 4B / ISB / ISD / ISF / QSB" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA LLENADO ACEITE CUMMINS 4B / ISB / ISD / ISF / QSB</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 4962608</li>
+        <li><strong>Ref Alterna:</strong> 141380</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+LLENADO+ACEITE+CUMMINS+4B+/+ISB+/+ISD+/+ISF+/+QSB" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-21" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS EFC-8551.png" alt="TAPA LLENADO ACEITE CUMMINS 2"" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA LLENADO ACEITE CUMMINS 2"</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 222GB214</li>
+        <li><strong>Ref Alterna:</strong> EFC-8551</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+LLENADO+ACEITE+CUMMINS+2"" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-22" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS EFC-8552.png" alt="TAPA LLENADO ACEITE CUMMINS 1"" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA LLENADO ACEITE CUMMINS 1"</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 222GB27A</li>
+        <li><strong>Ref Alterna:</strong> EFC-8552</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+LLENADO+ACEITE+CUMMINS+1"" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-23" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPAS EM83920.png" alt="TAPA DE COMBUSTIBLE CON BLOQUEO" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA DE COMBUSTIBLE CON BLOQUEO</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 9538-24935</li>
+        <li><strong>Ref Alterna:</strong> EM83920</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+DE+COMBUSTIBLE+CON+BLOQUEO" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="prod-modal" id="modal-24" style="display:none">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Tapas/TAPA 20 LBS - 05-17223-002.png" alt="TAPA 20 LBS" />
+    </div>
+    <div class="prod-modal__info">
+      <h2 class="prod-modal__title">TAPA 20 LBS</h2>
+      <ul class="prod-modal__specs">
+        <li><strong>Ref OEM:</strong> 05-17223-002</li>
+        <li><strong>Ref Alterna:</strong> 740029</li>
+        <li><strong>Marca:</strong> PAI</li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+informaci%C3%B3n+sobre+TAPA+20+LBS" target="_blank" rel="noopener" class="btn btn--whatsapp" style="margin-top:auto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <a href="../../index.html" class="nav__logo" style="display:inline-block; margin-bottom:16px;">
+        <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+      </a>
+      <p style="color:var(--muted); font-size:14px; line-height:1.6;">Repuestos y accesorios para motores diésel de alta exigencia.</p>
+    </div>
+    <div>
+      <h4>Productos</h4>
+      <a href="../../productos.html">Motor</a>
+      <a href="../../productos.html">Caja</a>
+      <a href="../../productos/transmision.html">Transmisión</a>
+      <a href="../../productos/direccion.html">Dirección</a>
+      <a href="../../productos.html">Eléctrico</a>
+      <a href="../../productos/adhesivos.html">Adhesivos</a>
+      <a href="patinestensores.html">Patines Tensores</a>
+      <a href="depositos.html">Depósitos</a>
+      <a href="tapas.html">Tapas</a>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Visítanos</h4>
+      <p class="footer__sede">📍 Bogotá — Estanzuela</p>
+      <p>Cra 15 # 7-20, Bogotá, Cundinamarca</p>
+      <p class="footer__sede">📍 Bogotá — El Dorado</p>
+      <p>Tv. 93 #53-32 Parque Empresarial El Dorado, Bodega 10</p>
+      <p class="footer__sede">📍 Barranquilla</p>
+      <p>Vía 40 #73-290, Bodega 6, Barranquilla, Atlántico</p>
+      <p class="footer__email">ventaslacasadeloverhaul@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 La Casa del Overhaul</span>
+    <span>Bogotá, Colombia</span>
+  </div>
+</footer>
+
+<script src="../../script.js?v=3"></script>
+<script>
+function openModal(id) {
+  var overlay = document.getElementById('modal-overlay');
+  overlay.querySelectorAll('.prod-modal').forEach(function(m) { m.style.display = 'none'; });
+  document.getElementById(id).style.display = 'grid';
+  overlay.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  var overlay = document.getElementById('modal-overlay');
+  overlay.querySelectorAll('.prod-modal').forEach(function(m) { m.style.display = 'none'; });
+  overlay.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
