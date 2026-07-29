@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Enfriamiento — La Casa del Overhaul</title>
+<meta name="description" content="Patines tensores Power Systems para motores Cummins, Detroit Diesel, Mack, Volvo, Caterpillar, Mercedes-Benz y más." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../../assets/img/Thumb Piston.png" />
+<link rel="stylesheet" href="../../styles.css?v=13" />
+<style>
+.prod-card { cursor: pointer; }
+.prod-card__hover {
+  position: absolute; inset: 0;
+  background: rgba(30,77,156,0.72);
+  color: #fff; font-weight: 700; font-size: 15px;
+  letter-spacing: .08em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s;
+}
+.prod-card:hover .prod-card__hover { opacity: 1; }
+
+.prod-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 1000;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.prod-modal-overlay.is-open { display: flex; }
+.prod-modal {
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 20px; max-width: 780px; width: 100%;
+  display: none; grid-template-columns: 1fr 1fr; gap: 0;
+  overflow: hidden; position: relative;
+  animation: modalIn .25s var(--ease);
+}
+@keyframes modalIn { from { opacity:0; transform: scale(.95); } to { opacity:1; transform: scale(1); } }
+.prod-modal__close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,.15); border: none; color: #fff;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 16px;
+  cursor: pointer; z-index: 2;
+}
+.prod-modal__img {
+  background: #fff; display: flex;
+  align-items: center; justify-content: center;
+  padding: 24px; min-height: 300px;
+}
+.prod-modal__img img { max-width: 100%; max-height: 280px; object-fit: contain; }
+.prod-modal__info { padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; }
+.prod-modal__title {
+  font-family: var(--font-title); font-size: 24px;
+  text-transform: uppercase; color: var(--text); margin: 0;
+}
+.prod-modal__specs { color: var(--muted); font-size: 15px; line-height: 1.7; padding-left: 18px; margin: 0; }
+.prod-modal__specs li { margin-bottom: 4px; }
+@media (max-width: 620px) {
+  .prod-modal { grid-template-columns: 1fr; }
+  .prod-modal__img { min-height: 200px; }
+}
+.subcat-nav {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.subcat-nav__label {
+  font-family: var(--font-title); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); align-self: center; margin-right: 4px;
+}
+.subcat-nav a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 20px; border-radius: 999px; font-size: 13px;
+  font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border: 2px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.65); transition: background .2s, color .2s, border-color .2s;
+}
+.subcat-nav a.is-active,
+.subcat-nav a:hover { background: #fff; color: var(--accent); border-color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="../../index.html" class="nav__logo">
+      <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+    </a>
+    <a href="https://checkout.wompi.co/l/KP2qmb" target="_blank" rel="noopener" class="btn--pago"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pago en línea</a>
+    <nav class="nav__links">
+      <a href="../../productos.html" class="is-active">Productos</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../contacto.html">Contacto</a>
+    </nav>
+    <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+m%C3%A1s+informaci%C3%B3n+sobre+La+Casa+del+Overhaul+https%3A%2F%2Fwww.lcdo.com.co%2F" target="_blank" rel="noopener" class="btn btn--whatsapp nav__cta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+    <button class="nav__burger" aria-label="Menú">&#9776;</button>
+  </div>
+</header>
+
+<!-- ============ PRODUCTOS ============ -->
+<section class="cats">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow"><a href="../../productos.html" style="color:inherit; text-decoration:none;">← Productos</a></span>
+      <h2 class="section-title">ENFRIAMIENTO —<br/>PATINES TENSORES</h2>
+      <p class="section-sub">Patines tensores para motores Cummins, Detroit Diesel, Mack, Volvo, Caterpillar, Mercedes-Benz y más.</p>
+    </header>
+
+    <!-- Subcategory nav -->
+    <div class="subcat-nav">
+      <span class="subcat-nav__label">Enfriamiento /</span>
+      <a href="patinestensores.html" class="is-active">Patines Tensores</a>
+      <a href="depositos.html">Depósitos de Refrigerante</a>
+      <a href="tapas.html">Tapas</a>
+      <a href="ventiladores.html">Ventiladores</a>
+    </div>
+
+    <h3 style="font-family: var(--font-title); font-size: 18px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px;">Patín Tensor</h3>
+    <div class="sedes__grid">
+
+      <!-- P1 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-1')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89484.png" alt="Patín Tensor PB-89484" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89484</h3>
+          <p class="sede-card__address">Cummins, Detroit Diesel, Freightliner, International, GM, John Deere, Volvo — Ref OEM: 3102888 / 3284080 / 40049333</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89484%20%E2%80%94%20Motor%3A%20Cummins%2C%20Detroit%20Diesel%2C%20Freightliner%2C%20International%2C%20GM%2C%20John%20Deere%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%203102888%20/%203284080%20/%2040049333%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-2')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89823 (1).png" alt="Patín Tensor PB-89489 (Polea Lisa)" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89489 (Polea Lisa)</h3>
+          <p class="sede-card__address">Cummins, International — Ref OEM: 4000800 / 4008042 / 4080124</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89489%20%28Polea%20Lisa%29%20%E2%80%94%20Motor%3A%20Cummins%2C%20International%20%E2%80%94%20Ref%20OEM%3A%204000800%20/%204008042%20/%204080124%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-3')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-5271282.png" alt="Patín Tensor PB-5271282" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-5271282</h3>
+          <p class="sede-card__address">Cummins ISF 2.8 / Foton Tunland — Ref OEM: 5271282</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-5271282%20%E2%80%94%20Motor%3A%20Cummins%20ISF%202.8%20/%20Foton%20Tunland%20%E2%80%94%20Ref%20OEM%3A%205271282%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-4')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-5262500.png" alt="Patín Tensor PB-5262500" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-5262500</h3>
+          <p class="sede-card__address">Cummins ISF 2.8 / Foton Tunland — Ref OEM: 5262500</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-5262500%20%E2%80%94%20Motor%3A%20Cummins%20ISF%202.8%20/%20Foton%20Tunland%20%E2%80%94%20Ref%20OEM%3A%205262500%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-5')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-5287020.png" alt="Patín Tensor PB-5287020" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-5287020</h3>
+          <p class="sede-card__address">Cummins ISF 3.8 — Ref OEM: 5287020</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-5287020%20%E2%80%94%20Motor%3A%20Cummins%20ISF%203.8%20%E2%80%94%20Ref%20OEM%3A%205287020%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-6')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89478.png" alt="Patín Tensor PB-89478" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89478</h3>
+          <p class="sede-card__address">Cummins 4BT / 6BT / 6CT, Komatsu — Ref OEM: 3904370 / 3907469 / 3908163 / 3911315</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89478%20%E2%80%94%20Motor%3A%20Cummins%204BT%20/%206BT%20/%206CT%2C%20Komatsu%20%E2%80%94%20Ref%20OEM%3A%203904370%20/%203907469%20/%203908163%20/%203911315%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-7')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89486.png" alt="Patín Tensor PB-89486" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89486</h3>
+          <p class="sede-card__address">Cummins 6CT Acanalado, Komatsu — Ref OEM: 3287277 / 3910707 / 3914854 / 3934822</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89486%20%E2%80%94%20Motor%3A%20Cummins%206CT%20Acanalado%2C%20Komatsu%20%E2%80%94%20Ref%20OEM%3A%203287277%20/%203910707%20/%203914854%20/%203934822%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P8 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-8')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-4898548.png" alt="Patín Tensor PB-4898548" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-4898548</h3>
+          <p class="sede-card__address">Cummins ISB — Ref OEM: 4898548 / 4891116 / 1399961 / 1406486 / 4936440</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-4898548%20%E2%80%94%20Motor%3A%20Cummins%20ISB%20%E2%80%94%20Ref%20OEM%3A%204898548%20/%204891116%20/%201399961%20/%201406486%20/%204936440%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P9 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-9')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89475.png" alt="Patín Tensor PB-89475" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89475</h3>
+          <p class="sede-card__address">Cummins ISB (Acanalado) — Ref OEM: 3974102 / 3973820</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89475%20%E2%80%94%20Motor%3A%20Cummins%20ISB%20%28Acanalado%29%20%E2%80%94%20Ref%20OEM%3A%203974102%20/%203973820%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P10 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-10')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89481.png" alt="Patín Tensor PB-89481" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89481</h3>
+          <p class="sede-card__address">Cummins ISB / ISC / ISL, Case, John Deere, Komatsu, Volvo — Ref OEM: 3914081 / 3945849 / 87436755 / 3957424</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89481%20%E2%80%94%20Motor%3A%20Cummins%20ISB%20/%20ISC%20/%20ISL%2C%20Case%2C%20John%20Deere%2C%20Komatsu%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%203914081%20/%203945849%20/%2087436755%20/%203957424%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P11 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-11')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-3696364.png" alt="Patín Tensor PB-3696364" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-3696364</h3>
+          <p class="sede-card__address">Cummins ISG — Ref OEM: 3696364 / 3694433 / 5582944</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-3696364%20%E2%80%94%20Motor%3A%20Cummins%20ISG%20%E2%80%94%20Ref%20OEM%3A%203696364%20/%203694433%20/%205582944%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P12 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-12')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-4320327.png" alt="Patín Tensor PB-4320327" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-4320327</h3>
+          <p class="sede-card__address">Cummins ISZ — Ref OEM: 4320327</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-4320327%20%E2%80%94%20Motor%3A%20Cummins%20ISZ%20%E2%80%94%20Ref%20OEM%3A%204320327%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P13 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-13')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-2874377.png" alt="Patín Tensor PB-2874377" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-2874377</h3>
+          <p class="sede-card__address">Cummins ISZ — Ref OEM: 2874377 / 2874024 / 4959902</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-2874377%20%E2%80%94%20Motor%3A%20Cummins%20ISZ%20%E2%80%94%20Ref%20OEM%3A%202874377%20/%202874024%20/%204959902%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P14 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-14')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89421.png" alt="Patín Tensor PB-89421" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89421</h3>
+          <p class="sede-card__address">Cummins ISX — Ref OEM: 3681240 / 4059202</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89421%20%E2%80%94%20Motor%3A%20Cummins%20ISX%20%E2%80%94%20Ref%20OEM%3A%203681240%20/%204059202%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P15 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-15')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89422.png" alt="Patín Tensor PB-89422" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89422</h3>
+          <p class="sede-card__address">Cummins ISX — Ref OEM: 3680194 / 4026775 / 4059201</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89422%20%E2%80%94%20Motor%3A%20Cummins%20ISX%20%E2%80%94%20Ref%20OEM%3A%203680194%20/%204026775%20/%204059201%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P16 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-16')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89440.png" alt="Patín Tensor PB-89440" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89440</h3>
+          <p class="sede-card__address">Caterpillar, Cummins, Dynacraft — Ref OEM: 236-2301 / 344-1722 / 2871292 / 3682946</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89440%20%E2%80%94%20Motor%3A%20Caterpillar%2C%20Cummins%2C%20Dynacraft%20%E2%80%94%20Ref%20OEM%3A%20236-2301%20/%20344-1722%20/%202871292%20/%203682946%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P17 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-17')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89446.png" alt="Patín Tensor PB-89446" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89446</h3>
+          <p class="sede-card__address">Caterpillar, Cummins, International, John Deere — Ref OEM: 190-0643 / 3758345 / 1841760-C1 / RE506352</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89446%20%E2%80%94%20Motor%3A%20Caterpillar%2C%20Cummins%2C%20International%2C%20John%20Deere%20%E2%80%94%20Ref%20OEM%3A%20190-0643%20/%203758345%20/%201841760-C1%20/%20RE506352%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P18 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-18')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89477 (1).png" alt="Patín Tensor PB-89447" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89447</h3>
+          <p class="sede-card__address">Caterpillar, Cummins — Ref OEM: 200-2279 / 2871296 / 3691280 / 4920105</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89447%20%E2%80%94%20Motor%3A%20Caterpillar%2C%20Cummins%20%E2%80%94%20Ref%20OEM%3A%20200-2279%20/%202871296%20/%203691280%20/%204920105%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P19 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-19')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89448.png" alt="Patín Tensor PB-89448" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89448</h3>
+          <p class="sede-card__address">Cummins, Dynacraft — Ref OEM: 2891940 / 3104149 / 3682255 / 3682683</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89448%20%E2%80%94%20Motor%3A%20Cummins%2C%20Dynacraft%20%E2%80%94%20Ref%20OEM%3A%202891940%20/%203104149%20/%203682255%20/%203682683%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P20 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-20')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89419.png" alt="Patín Tensor PB-89419" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89419</h3>
+          <p class="sede-card__address">Detroit Diesel, Freightliner — Ref OEM: 23520317 / 23527565 / 01-27425-000</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89419%20%E2%80%94%20Motor%3A%20Detroit%20Diesel%2C%20Freightliner%20%E2%80%94%20Ref%20OEM%3A%2023520317%20/%2023527565%20/%2001-27425-000%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P21 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-21')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89489.png" alt="Patín Tensor PB-89489 (Polea Acanalada)" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89489 (Polea Acanalada)</h3>
+          <p class="sede-card__address">Cummins, International — Ref OEM: 4000980 / 4066812 / 4086084 / 1687801-C91</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89489%20%28Polea%20Acanalada%29%20%E2%80%94%20Motor%3A%20Cummins%2C%20International%20%E2%80%94%20Ref%20OEM%3A%204000980%20/%204066812%20/%204086084%20/%201687801-C91%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P22 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-22')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89455.png" alt="Patín Tensor PB-89455" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89455</h3>
+          <p class="sede-card__address">Mercedes-Benz OM 906 — Ref OEM: A9062002470</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89455%20%E2%80%94%20Motor%3A%20Mercedes-Benz%20OM%20906%20%E2%80%94%20Ref%20OEM%3A%20A9062002470%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P23 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-23')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89477.png" alt="Patín Tensor PB-89477" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89477</h3>
+          <p class="sede-card__address">Mack MP8, Volvo — Ref OEM: 21454379 / 21568410 / 21568413 / 23669027</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89477%20%E2%80%94%20Motor%3A%20Mack%20MP8%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%2021454379%20/%2021568410%20/%2021568413%20/%2023669027%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P24 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-24')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89823.png" alt="Patín Tensor PB-89823" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89823</h3>
+          <p class="sede-card__address">Mack MP8, Volvo — Ref OEM: 20582558</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89823%20%E2%80%94%20Motor%3A%20Mack%20MP8%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%2020582558%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+      <!-- P25 -->
+      <div class="sede-card prod-card" onclick="openModal('modal-25')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/PB-89935.png" alt="Patín Tensor PB-89935" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/LOGO POWER SYSTEMS (1).png" alt="Power Systems">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">Power Systems</p>
+          <h3 class="sede-card__name">Patín Tensor PB-89935</h3>
+          <p class="sede-card__address">Mack MP8, Volvo — Ref OEM: 20860873 / 21417563 / 21461221 / 21714847</p>
+          <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89935%20%E2%80%94%20Motor%3A%20Mack%20MP8%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%2020860873%20/%2021417563%20/%2021461221%20/%2021714847%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotizar por WhatsApp →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODALES ============ -->
+<div id="modal-overlay" class="prod-modal-overlay" onclick="closeModal()">
+
+  <div id="modal-1" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89484.png" alt="Patín Tensor PB-89484" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89484</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins, Detroit Diesel, Freightliner, International, GM, John Deere, Volvo</strong></li>
+        <li>Ref OEM: <strong>3102888 / 3284080 / 40049333</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89404 / 89442 / 89484 | 23512829 / 235204500</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89484%20%E2%80%94%20Motor%3A%20Cummins%2C%20Detroit%20Diesel%2C%20Freightliner%2C%20International%2C%20GM%2C%20John%20Deere%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%203102888%20/%203284080%20/%2040049333%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-2" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89823 (1).png" alt="Patín Tensor PB-89489 (Polea Lisa)" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89489 (Polea Lisa)</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins, International</strong></li>
+        <li>Ref OEM: <strong>4000800 / 4008042 / 4080124</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89489 | D11010-874 / 107090-01</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89489%20%28Polea%20Lisa%29%20%E2%80%94%20Motor%3A%20Cummins%2C%20International%20%E2%80%94%20Ref%20OEM%3A%204000800%20/%204008042%20/%204080124%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-3" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-5271282.png" alt="Patín Tensor PB-5271282" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-5271282</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISF 2.8 / Foton Tunland</strong></li>
+        <li>Ref OEM: <strong>5271282</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-5271282%20%E2%80%94%20Motor%3A%20Cummins%20ISF%202.8%20/%20Foton%20Tunland%20%E2%80%94%20Ref%20OEM%3A%205271282%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-4" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-5262500.png" alt="Patín Tensor PB-5262500" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-5262500</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISF 2.8 / Foton Tunland</strong></li>
+        <li>Ref OEM: <strong>5262500</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-5262500%20%E2%80%94%20Motor%3A%20Cummins%20ISF%202.8%20/%20Foton%20Tunland%20%E2%80%94%20Ref%20OEM%3A%205262500%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-5" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-5287020.png" alt="Patín Tensor PB-5287020" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-5287020</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISF 3.8</strong></li>
+        <li>Ref OEM: <strong>5287020</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-5287020%20%E2%80%94%20Motor%3A%20Cummins%20ISF%203.8%20%E2%80%94%20Ref%20OEM%3A%205287020%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-6" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89478.png" alt="Patín Tensor PB-89478" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89478</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins 4BT / 6BT / 6CT, Komatsu</strong></li>
+        <li>Ref OEM: <strong>3904370 / 3907469 / 3908163 / 3911315</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89409 / 89478 | D1186-2445</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89478%20%E2%80%94%20Motor%3A%20Cummins%204BT%20/%206BT%20/%206CT%2C%20Komatsu%20%E2%80%94%20Ref%20OEM%3A%203904370%20/%203907469%20/%203908163%20/%203911315%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-7" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89486.png" alt="Patín Tensor PB-89486" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89486</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins 6CT Acanalado, Komatsu</strong></li>
+        <li>Ref OEM: <strong>3287277 / 3910707 / 3914854 / 3934822</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89415 / 89486 | D1186-2523</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89486%20%E2%80%94%20Motor%3A%20Cummins%206CT%20Acanalado%2C%20Komatsu%20%E2%80%94%20Ref%20OEM%3A%203287277%20/%203910707%20/%203914854%20/%203934822%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-8" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-4898548.png" alt="Patín Tensor PB-4898548" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-4898548</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISB</strong></li>
+        <li>Ref OEM: <strong>4898548 / 4891116 / 1399961 / 1406486 / 4936440</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-4898548%20%E2%80%94%20Motor%3A%20Cummins%20ISB%20%E2%80%94%20Ref%20OEM%3A%204898548%20/%204891116%20/%201399961%20/%201406486%20/%204936440%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-9" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89475.png" alt="Patín Tensor PB-89475" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89475</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISB (Acanalado)</strong></li>
+        <li>Ref OEM: <strong>3974102 / 3973820</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89475</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89475%20%E2%80%94%20Motor%3A%20Cummins%20ISB%20%28Acanalado%29%20%E2%80%94%20Ref%20OEM%3A%203974102%20/%203973820%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-10" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89481.png" alt="Patín Tensor PB-89481" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89481</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISB / ISC / ISL, Case, John Deere, Komatsu, Volvo</strong></li>
+        <li>Ref OEM: <strong>3914081 / 3945849 / 87436755 / 3957424</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89406 / 89481 | Gates: 38516 | Goodyear: 49521</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89481%20%E2%80%94%20Motor%3A%20Cummins%20ISB%20/%20ISC%20/%20ISL%2C%20Case%2C%20John%20Deere%2C%20Komatsu%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%203914081%20/%203945849%20/%2087436755%20/%203957424%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-11" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-3696364.png" alt="Patín Tensor PB-3696364" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-3696364</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISG</strong></li>
+        <li>Ref OEM: <strong>3696364 / 3694433 / 5582944</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-3696364%20%E2%80%94%20Motor%3A%20Cummins%20ISG%20%E2%80%94%20Ref%20OEM%3A%203696364%20/%203694433%20/%205582944%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-12" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-4320327.png" alt="Patín Tensor PB-4320327" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-4320327</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISZ</strong></li>
+        <li>Ref OEM: <strong>4320327</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-4320327%20%E2%80%94%20Motor%3A%20Cummins%20ISZ%20%E2%80%94%20Ref%20OEM%3A%204320327%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-13" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-2874377.png" alt="Patín Tensor PB-2874377" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-2874377</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISZ</strong></li>
+        <li>Ref OEM: <strong>2874377 / 2874024 / 4959902</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-2874377%20%E2%80%94%20Motor%3A%20Cummins%20ISZ%20%E2%80%94%20Ref%20OEM%3A%202874377%20/%202874024%20/%204959902%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-14" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89421.png" alt="Patín Tensor PB-89421" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89421</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISX</strong></li>
+        <li>Ref OEM: <strong>3681240 / 4059202</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89421 | Gates: 38535 | Goodyear: 49534</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89421%20%E2%80%94%20Motor%3A%20Cummins%20ISX%20%E2%80%94%20Ref%20OEM%3A%203681240%20/%204059202%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-15" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89422.png" alt="Patín Tensor PB-89422" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89422</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins ISX</strong></li>
+        <li>Ref OEM: <strong>3680194 / 4026775 / 4059201</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89422 | Goodyear: 49537</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89422%20%E2%80%94%20Motor%3A%20Cummins%20ISX%20%E2%80%94%20Ref%20OEM%3A%203680194%20/%204026775%20/%204059201%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-16" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89440.png" alt="Patín Tensor PB-89440" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89440</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Caterpillar, Cummins, Dynacraft</strong></li>
+        <li>Ref OEM: <strong>236-2301 / 344-1722 / 2871292 / 3682946</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89440 | Gates: 38609</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89440%20%E2%80%94%20Motor%3A%20Caterpillar%2C%20Cummins%2C%20Dynacraft%20%E2%80%94%20Ref%20OEM%3A%20236-2301%20/%20344-1722%20/%202871292%20/%203682946%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-17" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89446.png" alt="Patín Tensor PB-89446" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89446</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Caterpillar, Cummins, International, John Deere</strong></li>
+        <li>Ref OEM: <strong>190-0643 / 3758345 / 1841760-C1 / RE506352</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89446 | Gates: 38620 | Goodyear: 49575</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89446%20%E2%80%94%20Motor%3A%20Caterpillar%2C%20Cummins%2C%20International%2C%20John%20Deere%20%E2%80%94%20Ref%20OEM%3A%20190-0643%20/%203758345%20/%201841760-C1%20/%20RE506352%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-18" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89477 (1).png" alt="Patín Tensor PB-89447" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89447</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Caterpillar, Cummins</strong></li>
+        <li>Ref OEM: <strong>200-2279 / 2871296 / 3691280 / 4920105</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89447</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89447%20%E2%80%94%20Motor%3A%20Caterpillar%2C%20Cummins%20%E2%80%94%20Ref%20OEM%3A%20200-2279%20/%202871296%20/%203691280%20/%204920105%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-19" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89448.png" alt="Patín Tensor PB-89448" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89448</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins, Dynacraft</strong></li>
+        <li>Ref OEM: <strong>2891940 / 3104149 / 3682255 / 3682683</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89448 | Gates: 38610</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89448%20%E2%80%94%20Motor%3A%20Cummins%2C%20Dynacraft%20%E2%80%94%20Ref%20OEM%3A%202891940%20/%203104149%20/%203682255%20/%203682683%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-20" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89419.png" alt="Patín Tensor PB-89419" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89419</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Detroit Diesel, Freightliner</strong></li>
+        <li>Ref OEM: <strong>23520317 / 23527565 / 01-27425-000</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89419 | Gates: 38501 | Goodyear: 49514</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89419%20%E2%80%94%20Motor%3A%20Detroit%20Diesel%2C%20Freightliner%20%E2%80%94%20Ref%20OEM%3A%2023520317%20/%2023527565%20/%2001-27425-000%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-21" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89489.png" alt="Patín Tensor PB-89489 (Polea Acanalada)" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89489 (Polea Acanalada)</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Cummins, International</strong></li>
+        <li>Ref OEM: <strong>4000980 / 4066812 / 4086084 / 1687801-C91</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89489 | Gates: 38519 | SKF: VKM910009</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89489%20%28Polea%20Acanalada%29%20%E2%80%94%20Motor%3A%20Cummins%2C%20International%20%E2%80%94%20Ref%20OEM%3A%204000980%20/%204066812%20/%204086084%20/%201687801-C91%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-22" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89455.png" alt="Patín Tensor PB-89455" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89455</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Mercedes-Benz OM 906</strong></li>
+        <li>Ref OEM: <strong>A9062002470</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89455</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89455%20%E2%80%94%20Motor%3A%20Mercedes-Benz%20OM%20906%20%E2%80%94%20Ref%20OEM%3A%20A9062002470%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-23" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89477.png" alt="Patín Tensor PB-89477" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89477</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Mack MP8, Volvo</strong></li>
+        <li>Ref OEM: <strong>21454379 / 21568410 / 21568413 / 23669027</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89477 | Gates: 38671 | Goodyear: 49601</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89477%20%E2%80%94%20Motor%3A%20Mack%20MP8%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%2021454379%20/%2021568410%20/%2021568413%20/%2023669027%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-24" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89823.png" alt="Patín Tensor PB-89823" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89823</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Mack MP8, Volvo</strong></li>
+        <li>Ref OEM: <strong>20582558</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89823</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89823%20%E2%80%94%20Motor%3A%20Mack%20MP8%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%2020582558%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+
+  <div id="modal-25" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img"><img src="../../assets/img/PB-89935.png" alt="Patín Tensor PB-89935" /></div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">Power Systems</p>
+      <h3 class="prod-modal__title">Patín Tensor PB-89935</h3>
+      <ul class="prod-modal__specs">
+        <li>Motor: <strong>Mack MP8, Volvo</strong></li>
+        <li>Ref OEM: <strong>20860873 / 21417563 / 21461221 / 21714847</strong></li>
+        <li>Ref alterna: <strong>Dayco: 89935</strong></li>
+        <li>Marca: <strong>Power Systems</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2APat%C3%ADn%20Tensor%20PB-89935%20%E2%80%94%20Motor%3A%20Mack%20MP8%2C%20Volvo%20%E2%80%94%20Ref%20OEM%3A%2020860873%20/%2021417563%20/%2021461221%20/%2021714847%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotizar por WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <div class="nav__logo">
+        <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+      </div>
+      <p class="footer__tag">Precisión y fuerza para tu motor diésel.</p>
+    </div>
+    <div>
+      <h4>Catálogo</h4>
+      <a href="../../productos.html">Motor</a>
+      <a href="../../productos.html">Caja</a>
+      <a href="../../productos/transmision.html">Transmisión</a>
+      <a href="../../productos/direccion.html">Dirección</a>
+      <a href="../../productos.html">Eléctrico</a>
+      <a href="../../productos/adhesivos.html">Adhesivos</a>
+      <a href="patinestensores.html">Enfriamiento</a>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Visítanos</h4>
+      <p class="footer__sede">📍 Bogotá — Estanzuela</p>
+      <p>Cra 15 # 7-20, Bogotá, Cundinamarca</p>
+      <p class="footer__sede">📍 Bogotá — El Dorado</p>
+      <p>Tv. 93 #53-32 Parque Empresarial El Dorado, Bodega 10</p>
+      <p class="footer__sede">📍 Barranquilla</p>
+      <p>Vía 40 #73-290, Bodega 6, Barranquilla, Atlántico</p>
+      <p class="footer__email">ventaslacasadeloverhaul@gmail.com</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 La Casa del Overhaul</span>
+    <span>Bogotá, Colombia</span>
+  </div>
+</footer>
+
+<script src="../../script.js?v=3"></script>
+<script>
+function openModal(id) {
+  document.getElementById('modal-overlay').classList.add('is-open');
+  document.getElementById(id).classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.querySelectorAll('.prod-modal.is-open').forEach(m => m.classList.remove('is-open'));
+  document.getElementById('modal-overlay').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
