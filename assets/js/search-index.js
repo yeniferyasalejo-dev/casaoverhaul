@@ -1478,5 +1478,215 @@ window.PRODUCTS_INDEX = [
     "url": "productos/caja.html",
     "modal": "modal-22",
     "wa": "https://wa.me/573212101283?text=Hola%20%2ALa%20Casa%20del%20Overhaul%2A%2C%20me%20interesa%20cotizar%20el%20%2ATren%20Fijo%204HK1%20ZAKUMOTOR%2A."
+  },
+  {
+    "name": "ARNÉS INYECTORES",
+    "ref": "INTERNATIONAL 530 — Ref: 1889905C91 / DF-1889905C91",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-1",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Inyectores+%E2%80%94+Motor%3A+INTERNATIONAL+530+%E2%80%94+Ref+OEM%3A+1889905C91%2A."
+  },
+  {
+    "name": "ARNÉS CONTROL ELECTRÓNICO",
+    "ref": "FOTON AUCAN — Ref: PM40004416 / PMM40004416",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-2",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Control+Electr%C3%B3nico+%E2%80%94+Motor%3A+FOTON+AUCAN+%E2%80%94+Ref+OEM%3A+PM40004416%2A."
+  },
+  {
+    "name": "ARNÉS CONTROL ELECTRÓNICO FOTON BJ1045",
+    "ref": "CUMMINS ISF2.5 — Ref: 5711803",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-3",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Control+Electr%C3%B3nico+Foton+BJ1045+%E2%80%94+Motor%3A+CUMMINS+ISF2.5+%E2%80%94+Ref+OEM%3A+5711803%2A."
+  },
+  {
+    "name": "ARNÉS INYECTOR",
+    "ref": "CUMMINS ISF 3 — Ref: 5289407",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-4",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Inyector+%E2%80%94+Motor%3A+CUMMINS+ISF+3+%E2%80%94+Ref+OEM%3A+5289407%2A."
+  },
+  {
+    "name": "ARNÉS MÓDULO ELÉCTRICO",
+    "ref": "CUMMINS ISF 38 — Ref: 5306288",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-5",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+M%C3%B3dulo+El%C3%A9ctrico+%E2%80%94+Motor%3A+CUMMINS+ISF+38+%E2%80%94+Ref+OEM%3A+5306288%2A."
+  },
+  {
+    "name": "ARNÉS INYECTOR",
+    "ref": "CUMMINS ISD 4.5 — Ref: 5634772 / DF-5624772",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-6",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Inyector+%E2%80%94+Motor%3A+CUMMINS+ISD+4.5+%E2%80%94+Ref+OEM%3A+5634772%2A."
+  },
+  {
+    "name": "ARNÉS DE CABLEADO",
+    "ref": "CUMMINS ISD 4.5 — Ref: 5622323 / DF-5622323",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-7",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+de+Cableado+%E2%80%94+Motor%3A+CUMMINS+ISD+4.5+%E2%80%94+Ref+OEM%3A+5622323%2A."
+  },
+  {
+    "name": "ARNÉS INYECTORES HEMBRA KENWORTH",
+    "ref": "CUMMINS ISM/M11 — Ref: 2864504",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-8",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Inyectores+Hembra+Kenworth+%E2%80%94+Motor%3A+CUMMINS+ISM%2FM11+%E2%80%94+Ref+OEM%3A+2864504%2A."
+  },
+  {
+    "name": "ARNÉS INYECTORES MACHO INTERNATIONAL",
+    "ref": "CUMMINS ISM/M11 — Ref: 2864516",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-9",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Inyectores+Macho+International+%E2%80%94+Motor%3A+CUMMINS+ISM%2FM11+%E2%80%94+Ref+OEM%3A+2864516%2A."
+  },
+  {
+    "name": "ARNÉS FRENO DE MOTOR",
+    "ref": "CUMMINS ISX — Ref: 4331306",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-10",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Freno+de+Motor+%E2%80%94+Motor%3A+CUMMINS+ISX+%E2%80%94+Ref+OEM%3A+4331306%2A."
+  },
+  {
+    "name": "ARNÉS DE CABLEADO",
+    "ref": "CUMMINS — Ref: 4973486",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-11",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+de+Cableado+%E2%80%94+Motor%3A+CUMMINS+%E2%80%94+Ref+OEM%3A+4973486%2A."
+  },
+  {
+    "name": "ARNÉS INYECTOR",
+    "ref": "CUMMINS ISZ — Ref: 2874335G",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Arneses",
+    "url": "productos/electrico/arneses.html",
+    "modal": "modal-12",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AArn%C3%A9s+Inyector+%E2%80%94+Motor%3A+CUMMINS+ISZ+%E2%80%94+Ref+OEM%3A+2874335G%2A."
+  },
+  {
+    "name": "MÓDULO",
+    "ref": "FOTON AUCAN — Ref: PM40006228",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-1",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+FOTON+AUCAN+%E2%80%94+Ref+OEM%3A+PM40006228%2A."
+  },
+  {
+    "name": "MÓDULO CPL5904",
+    "ref": "CUMMINS ISF 2.5 — Ref: 5594165",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-2",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+CPL5904+%E2%80%94+Motor%3A+CUMMINS+ISF+2.5+%E2%80%94+Ref+OEM%3A+5594165%2A."
+  },
+  {
+    "name": "MÓDULO EURO 4",
+    "ref": "CUMMINS ISF2.8 — Ref: 5291535",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-3",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+4+%E2%80%94+Motor%3A+CUMMINS+ISF2.8+%E2%80%94+Ref+OEM%3A+5291535%2A."
+  },
+  {
+    "name": "MÓDULO EURO 5",
+    "ref": "CUMMINS ISF2.8 — Ref: 5293534 / 5293524",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-4",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+5+%E2%80%94+Motor%3A+CUMMINS+ISF2.8+%E2%80%94+Ref+OEM%3A+5293534%2A."
+  },
+  {
+    "name": "MÓDULO EURO 4",
+    "ref": "CUMMINS ISF 3.8 — Ref: 5291535",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-5",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+4+%E2%80%94+Motor%3A+CUMMINS+ISF+3.8+%E2%80%94+Ref+OEM%3A+5291535%2A."
+  },
+  {
+    "name": "MÓDULO EURO 5",
+    "ref": "CUMMINS ISF3.8 — Ref: 5293524",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-6",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+5+%E2%80%94+Motor%3A+CUMMINS+ISF3.8+%E2%80%94+Ref+OEM%3A+5293524%2A."
+  },
+  {
+    "name": "MÓDULO",
+    "ref": "CUMMINS ISK — Ref: 4309175",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-7",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+ISK+%E2%80%94+Ref+OEM%3A+4309175%2A."
+  },
+  {
+    "name": "MÓDULO",
+    "ref": "CUMMINS 5 — Ref: 4309175",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-8",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+5+%E2%80%94+Ref+OEM%3A+4309175%2A."
+  },
+  {
+    "name": "MÓDULO",
+    "ref": "CUMMINS 152 — Ref: 4995445",
+    "brand": "",
+    "category": "Eléctrico",
+    "subcategory": "Módulos",
+    "url": "productos/electrico/modulos.html",
+    "modal": "modal-9",
+    "wa": "https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+152+%E2%80%94+Ref+OEM%3A+4995445%2A."
   }
 ];
