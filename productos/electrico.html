@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eléctrico — La Casa del Overhaul</title>
+<meta name="description" content="Relojes de temperatura, presión de aceite, tacómetros y voltímetros PAI para motores diésel MACK." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../assets/img/Thumb Piston.png" />
+<link rel="stylesheet" href="../styles.css?v=24" />
+<style>
+.subcat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px; margin-top: 48px;
+}
+.subcat-card {
+  display: flex; flex-direction: column;
+  border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--line); background: var(--bg-2);
+  text-decoration: none;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.subcat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(30,77,156,.18);
+}
+.subcat-card__img {
+  width: 100%; aspect-ratio: 4/3; background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px; overflow: hidden; position: relative;
+}
+.subcat-card__img img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform .35s var(--ease); }
+.subcat-card:hover .subcat-card__img img { transform: scale(1.06); }
+.subcat-card__body { padding: 28px 28px 32px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.subcat-card__num { font-family: var(--font-title); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); font-weight: 700; }
+.subcat-card__name { font-family: var(--font-title); font-size: 20px; text-transform: uppercase; letter-spacing: .06em; color: var(--text); font-weight: 700; line-height: 1.2; margin: 0; }
+.subcat-card__desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0; flex: 1; }
+.subcat-card__cta { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-title); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-2); margin-top: 8px; }
+.subcat-card__cta svg { transition: transform .2s; }
+.subcat-card:hover .subcat-card__cta svg { transform: translateX(4px); }
+.cats { padding-top: 32px; }
+</style>
+<link rel="canonical" href="https://www.lcdo.com.co/productos/electrico.html" />
+</head>
+<body>
+<header class="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="nav__logo">
+      <img src="../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+    </a>
+    <a href="https://checkout.wompi.co/l/KP2qmb" target="_blank" rel="noopener" class="btn--pago"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pago en línea</a>
+    <nav class="nav__links">
+      <a href="../productos.html" class="is-active">Productos</a>
+      <a href="../redes.html">Nuestras Redes</a>
+      <a href="../nosotros.html">Nosotros</a>
+      <a href="../contacto.html">Contacto</a>
+    </nav>
+    <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+m%C3%A1s+informaci%C3%B3n+sobre+La+Casa+del+Overhaul+https%3A%2F%2Fwww.lcdo.com.co%2F" target="_blank" rel="noopener" class="btn btn--whatsapp nav__cta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    <button class="nav__burger" aria-label="Menú">&#9776;</button>
+  </div>
+</header>
+<section class="cats">
+  <div class="container">
+    <header class="section-head">
+      <nav aria-label="Breadcrumb" class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <ol>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../index.html" itemprop="item"><span itemprop="name">Inicio</span></a><meta itemprop="position" content="1" /></li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../productos.html" itemprop="item"><span itemprop="name">Productos</span></a><meta itemprop="position" content="2" /></li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">ELÉCTRICO</span><meta itemprop="position" content="3" /></li>
+        </ol>
+      </nav>
+      <h2 class="section-title">ELÉCTRICO</h2>
+      <p class="section-sub">Instrumentación eléctrica de alta precisión para motores diésel.</p>
+    </header>
+    <div class="subcat-grid">
+      <a href="electrico/relojes.html" class="subcat-card">
+        <div class="subcat-card__img"><img src="../assets/img/Reloj/RELOJ TEMPERATURA AGUA MACK.png" alt="Relojes" /></div>
+        <div class="subcat-card__body">
+          <span class="subcat-card__num">01 — Eléctrico</span>
+          <h3 class="subcat-card__name">Relojes</h3>
+          <p class="subcat-card__desc">Relojes de temperatura, presión, tacómetros y voltímetros PAI para motores diésel MACK.</p>
+          <span class="subcat-card__cta">Ver productos <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"/></svg></span>
+        </div>
+      </a>
+      <a href="electrico/solenoides.html" class="subcat-card">
+        <div class="subcat-card__img"><img src="../assets/img/solenoides y portadas/SOLENOIDE COMBUSTIBLE 1 TERMINAL 12V CUMMINS ISL_NH855_N14_L10_ISM_M11.png" alt="Solenoides" /></div>
+        <div class="subcat-card__body">
+          <span class="subcat-card__num">02 — Eléctrico</span>
+          <h3 class="subcat-card__name">Solenoides</h3>
+          <p class="subcat-card__desc">Solenoides de combustible, actuadores y electroválvulas fan clutch Diesel Force para Cummins, Mack e International.</p>
+          <span class="subcat-card__cta">Ver productos <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <div class="nav__logo">
+        <img src="../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+      </div>
+    </div>
+    <div>
+      <h4>Catálogo</h4>
+      <a href="../productos/motor.html">Motor</a>
+      <a href="../productos/caja.html">Caja</a>
+      <a href="../productos/transmision.html">Transmisión</a>
+      <a href="../productos/direccion.html">Dirección</a>
+      <a href="../productos/electrico.html">Eléctrico</a>
+      <a href="../productos/adhesivos.html">Adhesivos</a>
+      <a href="../productos/enfriamiento.html">Enfriamiento</a>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <a href="../nosotros.html">Nosotros</a>
+      <a href="../redes.html">Nuestras Redes</a>
+      <a href="../contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Visítanos</h4>
+      <p class="footer__sede">📍 Bogotá — Estanzuela</p>
+      <p>Cra 15 # 7-20, Bogotá, Cundinamarca</p>
+      <p class="footer__sede">📍 Bogotá — El Dorado</p>
+      <p>Tv. 93 #53-32 Parque Empresarial El Dorado, Bodega 10</p>
+      <p class="footer__sede">📍 Barranquilla</p>
+      <p>Cra 46 # 48-44, Barranquilla, Atlántico</p>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© 2025 La Casa del Overhaul. Todos los derechos reservados.</p>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>
