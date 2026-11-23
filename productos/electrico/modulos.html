@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Módulos Electrónicos (ECM) para Motores Cummins y Foton | La Casa del Overhaul</title>
+<meta name="description" content="Módulos electrónicos (computadores ECM) Euro 4 y Euro 5 para Cummins ISF 2.5, ISF 2.8, ISF 3.8, ISK y Foton Aucan. Cotiza por WhatsApp." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../../assets/img/Thumb Piston.png" />
+<link rel="stylesheet" href="../../styles.css?v=33" />
+<style>
+.prod-card { cursor: pointer; }
+.prod-card__hover {
+  position: absolute; inset: 0;
+  background: rgba(30,77,156,0.72);
+  color: #fff; font-weight: 700; font-size: 15px;
+  letter-spacing: .08em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s;
+}
+.prod-card:hover .prod-card__hover { opacity: 1; }
+
+.prod-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 1000;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.prod-modal-overlay.is-open { display: flex; }
+.prod-modal {
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 20px; max-width: 780px; width: 100%;
+  display: none; grid-template-columns: 1fr 1fr; gap: 0;
+  overflow: hidden; position: relative;
+  animation: modalIn .25s var(--ease);
+}
+@keyframes modalIn { from { opacity:0; transform: scale(.95); } to { opacity:1; transform: scale(1); } }
+.prod-modal__close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,.15); border: none; color: #fff;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 16px;
+  cursor: pointer; z-index: 2;
+}
+.prod-modal__img {
+  background: #fff; display: flex;
+  align-items: center; justify-content: center;
+  padding: 24px; min-height: 300px;
+}
+.prod-modal__img img { max-width: 100%; max-height: 280px; object-fit: contain; }
+.prod-modal__info { padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; }
+.prod-modal__title {
+  font-family: var(--font-title); font-size: 24px;
+  text-transform: uppercase; color: var(--text); margin: 0;
+}
+.prod-modal__specs { color: var(--muted); font-size: 15px; line-height: 1.7; padding-left: 18px; margin: 0; }
+.prod-modal__specs li { margin-bottom: 4px; }
+@media (max-width: 620px) {
+  .prod-modal { grid-template-columns: 1fr; }
+  .prod-modal__img { min-height: 200px; }
+}
+.subcat-nav {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.subcat-nav__label {
+  font-family: var(--font-title); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); align-self: center; margin-right: 4px;
+}
+.subcat-nav a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 20px; border-radius: 999px; font-size: 13px;
+  font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border: 2px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.65); transition: background .2s, color .2s, border-color .2s;
+}
+.subcat-nav a.is-active,
+.subcat-nav a:hover { background: #fff; color: var(--accent); border-color: #fff; }
+.cats { padding-top: 32px; }
+</style>
+<link rel="canonical" href="https://www.lcdo.com.co/productos/electrico/modulos.html" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Módulos electrónicos para motores diésel", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Product", "name": "Módulo Foton Aucan", "mpn": "PM40006228", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-foton-aucan-pm40006228.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Product", "name": "Módulo CPL5904 Cummins ISF 2.5", "mpn": "5594165", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-cpl5904-cummins-isf2-5-5594165.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Product", "name": "Módulo Euro 4 Cummins ISF2.8", "mpn": "5291535", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-euro-4-cummins-isf2-8-5291535.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 4, "item": {"@type": "Product", "name": "Módulo Euro 5 Cummins ISF2.8", "mpn": "5293534", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-euro-5-cummins-isf2-8-5293524.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 5, "item": {"@type": "Product", "name": "Módulo Euro 4 Cummins ISF 3.8", "mpn": "5291535", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-euro-4-cummins-isf3-8-5291535.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 6, "item": {"@type": "Product", "name": "Módulo Euro 5 Cummins ISF3.8", "mpn": "5293524", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-euro-5-cummins-isf3-8-5293524.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 7, "item": {"@type": "Product", "name": "Módulo Cummins ISK", "mpn": "4309175", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-cummins-isk-4309175.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 8, "item": {"@type": "Product", "name": "Módulo Cummins 5", "mpn": "4309175", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-cummins-5-4309175.png", "category": "Módulos electrónicos"}}, {"@type": "ListItem", "position": 9, "item": {"@type": "Product", "name": "Módulo Cummins 152", "mpn": "4995445", "image": "https://www.lcdo.com.co/assets/img/modulos/modulo-cummins-152-4995445.png", "category": "Módulos electrónicos"}}]}</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="../../index.html" class="nav__logo">
+      <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+    </a>
+    <a href="https://checkout.wompi.co/l/KP2qmb" target="_blank" rel="noopener" class="btn--pago"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pago en línea</a>
+    <nav class="nav__links">
+      <a href="../../productos.html" class="is-active">Productos</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../contacto.html">Contacto</a>
+    </nav>
+    <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+m%C3%A1s+informaci%C3%B3n+sobre+La+Casa+del+Overhaul+https%3A%2F%2Fwww.lcdo.com.co%2F" target="_blank" rel="noopener" class="btn btn--whatsapp nav__cta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    <button class="nav__burger" aria-label="Menú">&#9776;</button>
+  </div>
+</header>
+
+<!-- ============ PRODUCTOS ============ -->
+<section class="cats">
+  <div class="container">
+    <!-- ── BARRA DE BÚSQUEDA ── -->
+    <div class="prod-search">
+      <select class="prod-search__select" id="categorySelect">
+        <option value="">Todos los productos</option>
+        <optgroup label="Enfriamiento">
+          <option value="enfriamiento/patinestensores.html">↳ Patines Tensores</option>
+          <option value="enfriamiento/depositos.html">↳ Depósitos</option>
+          <option value="enfriamiento/tapas.html">↳ Tapas</option>
+          <option value="enfriamiento/ventiladores.html">↳ Ventiladores</option>
+        </optgroup>
+        <option value="caja.html">Caja</option>
+        <option value="transmision.html">Transmisión</option>
+        <optgroup label="Eléctrico">
+          <option value="electrico/relojes.html">↳ Relojes</option>
+          <option value="electrico/solenoides.html">↳ Solenoides</option>
+          <option value="electrico/arneses.html">↳ Arneses</option>
+          <option value="electrico/modulos.html">↳ Módulos</option>
+        </optgroup>
+        <option value="adhesivos.html">Adhesivos</option>
+        <option value="direccion.html">Dirección</option>
+      </select>
+      <input type="text" class="prod-search__input" id="prodSearchInput"
+             placeholder="Buscar por modelo, referencia...">
+      <button class="prod-search__btn" aria-label="Buscar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+      </button>
+    </div>
+    <p class="prod-search__count" id="brandCount"></p>
+
+    <header class="section-head">
+      <nav aria-label="Breadcrumb" class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../../index.html" itemprop="item"><span itemprop="name">Inicio</span></a><meta itemprop="position" content="1" /></li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../../productos.html" itemprop="item"><span itemprop="name">Productos</span></a><meta itemprop="position" content="2" /></li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../electrico.html" itemprop="item"><span itemprop="name">Eléctrico</span></a><meta itemprop="position" content="3" /></li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">Módulos</span><meta itemprop="position" content="4" /></li>
+  </ol>
+</nav>
+      <h1 class="section-title">ELÉCTRICO —<br/>MÓDULOS</h1>
+      <p class="section-sub">Módulos electrónicos (computadores) Euro 4 y Euro 5 para motores Cummins ISF, ISK y Foton.</p>
+    </header>
+
+    <!-- Subcategory nav -->
+    <div class="subcat-nav">
+      <span class="subcat-nav__label">Eléctrico /</span>
+      <a href="relojes.html">Relojes</a>
+      <a href="solenoides.html">Solenoides</a>
+      <a href="arneses.html">Arneses</a>
+      <a href="modulos.html" class="is-active">Módulos</a>
+    </div>
+
+    <p class="group-label" style="font-family: var(--font-title); font-size: 18px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px;">Módulos electrónicos</p>
+    <div class="sedes__grid" id="productGrid">
+
+      <!-- P1 -->
+      <div class="sede-card prod-card" data-brand="Foton" onclick="openModal('modal-1')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-foton-aucan-pm40006228.png" alt="Módulo Foton Aucan Ref PM40006228" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">FOTON AUCAN</p>
+          <h2 class="sede-card__name">Módulo Foton Aucan</h2>
+          <p class="sede-card__address">Ref OEM: PM40006228</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+FOTON+AUCAN+%E2%80%94+Ref+OEM%3A+PM40006228%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-2')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-cpl5904-cummins-isf2-5-5594165.png" alt="Módulo CPL5904 Cummins ISF 2.5 Ref 5594165" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS ISF 2.5</p>
+          <h2 class="sede-card__name">Módulo CPL5904 Cummins ISF 2.5</h2>
+          <p class="sede-card__address">Ref OEM: 5594165</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+CPL5904+%E2%80%94+Motor%3A+CUMMINS+ISF+2.5+%E2%80%94+Ref+OEM%3A+5594165%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-3')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-euro-4-cummins-isf2-8-5291535.png" alt="Módulo Euro 4 Cummins ISF2.8 Ref 5291535" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS ISF2.8</p>
+          <h2 class="sede-card__name">Módulo Euro 4 Cummins ISF2.8</h2>
+          <p class="sede-card__address">Ref OEM: 5291535</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+4+%E2%80%94+Motor%3A+CUMMINS+ISF2.8+%E2%80%94+Ref+OEM%3A+5291535%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-4')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-euro-5-cummins-isf2-8-5293524.png" alt="Módulo Euro 5 Cummins ISF2.8 Ref 5293534" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS ISF2.8</p>
+          <h2 class="sede-card__name">Módulo Euro 5 Cummins ISF2.8</h2>
+          <p class="sede-card__address">Ref OEM: 5293534 / 5293524</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+5+%E2%80%94+Motor%3A+CUMMINS+ISF2.8+%E2%80%94+Ref+OEM%3A+5293534%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-5')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-euro-4-cummins-isf3-8-5291535.png" alt="Módulo Euro 4 Cummins ISF 3.8 Ref 5291535" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS ISF 3.8</p>
+          <h2 class="sede-card__name">Módulo Euro 4 Cummins ISF 3.8</h2>
+          <p class="sede-card__address">Ref OEM: 5291535</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+4+%E2%80%94+Motor%3A+CUMMINS+ISF+3.8+%E2%80%94+Ref+OEM%3A+5291535%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-6')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-euro-5-cummins-isf3-8-5293524.png" alt="Módulo Euro 5 Cummins ISF3.8 Ref 5293524" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS ISF3.8</p>
+          <h2 class="sede-card__name">Módulo Euro 5 Cummins ISF3.8</h2>
+          <p class="sede-card__address">Ref OEM: 5293524</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+5+%E2%80%94+Motor%3A+CUMMINS+ISF3.8+%E2%80%94+Ref+OEM%3A+5293524%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-7')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-cummins-isk-4309175.png" alt="Módulo Cummins ISK Ref 4309175" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS ISK</p>
+          <h2 class="sede-card__name">Módulo Cummins ISK</h2>
+          <p class="sede-card__address">Ref OEM: 4309175</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+ISK+%E2%80%94+Ref+OEM%3A+4309175%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P8 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-8')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-cummins-5-4309175.png" alt="Módulo Cummins 5 Ref 4309175" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS 5</p>
+          <h2 class="sede-card__name">Módulo Cummins 5</h2>
+          <p class="sede-card__address">Ref OEM: 4309175</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+5+%E2%80%94+Ref+OEM%3A+4309175%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P9 -->
+      <div class="sede-card prod-card" data-brand="Cummins" onclick="openModal('modal-9')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/modulos/modulo-cummins-152-4995445.png" alt="Módulo Cummins 152 Ref 4995445" class="sede-card__img" style="object-fit:contain; padding: 16px;" loading="lazy" />
+          <span class="prod-card__hover">Ver detalle</span>
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">CUMMINS 152</p>
+          <h2 class="sede-card__name">Módulo Cummins 152</h2>
+          <p class="sede-card__address">Ref OEM: 4995445</p>
+          <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+152+%E2%80%94+Ref+OEM%3A+4995445%2A." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+    </div><!-- /productGrid -->
+  </div>
+</section>
+
+<!-- ============ MODALES ============ -->
+<div id="modal-overlay" class="prod-modal-overlay" onclick="closeModal()">
+
+  <!-- Modal 1 -->
+  <div id="modal-1" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-foton-aucan-pm40006228.png" alt="Módulo Foton Aucan" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">FOTON AUCAN</p>
+      <p class="prod-modal__title">Módulo Foton Aucan</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>FOTON AUCAN</strong></li>
+        <li>Ref OEM: <strong>PM40006228</strong></li>
+        <li>Ref Alterna: <strong>PM40006228</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+FOTON+AUCAN+%E2%80%94+Ref+OEM%3A+PM40006228%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div id="modal-2" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-cpl5904-cummins-isf2-5-5594165.png" alt="Módulo CPL5904 Cummins ISF 2.5" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS ISF 2.5</p>
+      <p class="prod-modal__title">Módulo CPL5904 Cummins ISF 2.5</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS ISF 2.5</strong></li>
+        <li>Ref OEM: <strong>5594165</strong></li>
+        <li>Ref Alterna: <strong>5594165</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+CPL5904+%E2%80%94+Motor%3A+CUMMINS+ISF+2.5+%E2%80%94+Ref+OEM%3A+5594165%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div id="modal-3" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-euro-4-cummins-isf2-8-5291535.png" alt="Módulo Euro 4 Cummins ISF2.8" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS ISF2.8</p>
+      <p class="prod-modal__title">Módulo Euro 4 Cummins ISF2.8</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS ISF2.8</strong></li>
+        <li>Ref OEM: <strong>5291535</strong></li>
+        <li>Ref Alterna: <strong>5291535</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+4+%E2%80%94+Motor%3A+CUMMINS+ISF2.8+%E2%80%94+Ref+OEM%3A+5291535%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div id="modal-4" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-euro-5-cummins-isf2-8-5293524.png" alt="Módulo Euro 5 Cummins ISF2.8" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS ISF2.8</p>
+      <p class="prod-modal__title">Módulo Euro 5 Cummins ISF2.8</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS ISF2.8</strong></li>
+        <li>Ref OEM: <strong>5293534</strong></li>
+        <li>Ref Alterna: <strong>5293524</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+5+%E2%80%94+Motor%3A+CUMMINS+ISF2.8+%E2%80%94+Ref+OEM%3A+5293534%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div id="modal-5" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-euro-4-cummins-isf3-8-5291535.png" alt="Módulo Euro 4 Cummins ISF 3.8" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS ISF 3.8</p>
+      <p class="prod-modal__title">Módulo Euro 4 Cummins ISF 3.8</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS ISF 3.8</strong></li>
+        <li>Ref OEM: <strong>5291535</strong></li>
+        <li>Ref Alterna: <strong>5291535</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+4+%E2%80%94+Motor%3A+CUMMINS+ISF+3.8+%E2%80%94+Ref+OEM%3A+5291535%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div id="modal-6" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-euro-5-cummins-isf3-8-5293524.png" alt="Módulo Euro 5 Cummins ISF3.8" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS ISF3.8</p>
+      <p class="prod-modal__title">Módulo Euro 5 Cummins ISF3.8</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS ISF3.8</strong></li>
+        <li>Ref OEM: <strong>5293524</strong></li>
+        <li>Ref Alterna: <strong>5293524</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+Euro+5+%E2%80%94+Motor%3A+CUMMINS+ISF3.8+%E2%80%94+Ref+OEM%3A+5293524%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 7 -->
+  <div id="modal-7" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-cummins-isk-4309175.png" alt="Módulo Cummins ISK" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS ISK</p>
+      <p class="prod-modal__title">Módulo Cummins ISK</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS ISK</strong></li>
+        <li>Ref OEM: <strong>4309175</strong></li>
+        <li>Ref Alterna: <strong>4309175</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+ISK+%E2%80%94+Ref+OEM%3A+4309175%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 8 -->
+  <div id="modal-8" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-cummins-5-4309175.png" alt="Módulo Cummins 5" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS 5</p>
+      <p class="prod-modal__title">Módulo Cummins 5</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS 5</strong></li>
+        <li>Ref OEM: <strong>4309175</strong></li>
+        <li>Ref Alterna: <strong>4309175</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+5+%E2%80%94+Ref+OEM%3A+4309175%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 9 -->
+  <div id="modal-9" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/modulos/modulo-cummins-152-4995445.png" alt="Módulo Cummins 152" loading="lazy" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">CUMMINS 152</p>
+      <p class="prod-modal__title">Módulo Cummins 152</p>
+      <ul class="prod-modal__specs">
+        <li>Aplicación / Motor: <strong>CUMMINS 152</strong></li>
+        <li>Ref OEM: <strong>4995445</strong></li>
+        <li>Ref Alterna: <strong>4995445</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+%2ALa+Casa+del+Overhaul%2A%2C+me+interesa+cotizar+el+%2AM%C3%B3dulo+%E2%80%94+Motor%3A+CUMMINS+152+%E2%80%94+Ref+OEM%3A+4995445%2A." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <div class="nav__logo">
+        <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+      </div>
+    </div>
+    <div>
+      <h4>Catálogo</h4>
+      <a href="../../productos/motor.html">Motor</a>
+      <a href="../../productos/caja.html">Caja</a>
+      <a href="../../productos/transmision.html">Transmisión</a>
+      <a href="../../productos/direccion.html">Dirección</a>
+      <a href="../../productos/electrico.html">Eléctrico</a>
+      <a href="../../productos/adhesivos.html">Adhesivos</a>
+      <a href="../../productos/enfriamiento.html">Enfriamiento</a>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Visítanos</h4>
+      <p class="footer__sede">📍 Bogotá — Estanzuela</p>
+      <p>Cra 15 # 7-20, Bogotá, Cundinamarca</p>
+      <p class="footer__sede">📍 Bogotá — El Dorado</p>
+      <p>Tv. 93 #53-32 Parque Empresarial El Dorado, Bodega 10</p>
+      <p class="footer__sede">📍 Barranquilla</p>
+      <p>Vía 40 #73-290, Bodega 6, Barranquilla, Atlántico</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 La Casa del Overhaul</span>
+    <span>Bogotá, Colombia</span>
+  </div>
+</footer>
+
+<script src="../../script.js?v=3"></script>
+<script>
+function openModal(id) {
+  document.querySelectorAll('.prod-modal').forEach(m => m.style.display = 'none');
+  document.getElementById(id).style.display = 'grid';
+  document.getElementById('modal-overlay').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+</script>
+
+<script src="../../assets/js/search-index.js?v=1"></script>
+<script src="../../assets/js/global-search.js?v=1"></script>
+</body>
+</html>
