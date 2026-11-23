@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Eléctrico — La Casa del Overhaul</title>
+<meta name="description" content="Relojes de temperatura, presión de aceite, tacómetros y voltímetros PAI para motores diésel MACK." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="../../assets/img/Thumb Piston.png" />
+<link rel="stylesheet" href="../../styles.css?v=24" />
+<style>
+.prod-card { cursor: pointer; }
+.prod-card__hover {
+  position: absolute; inset: 0;
+  background: rgba(30,77,156,0.72);
+  color: #fff; font-weight: 700; font-size: 15px;
+  letter-spacing: .08em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity .25s;
+}
+.prod-card:hover .prod-card__hover { opacity: 1; }
+
+.prod-modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 1000;
+  align-items: center; justify-content: center;
+  padding: 24px;
+}
+.prod-modal-overlay.is-open { display: flex; }
+.prod-modal {
+  background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 20px; max-width: 780px; width: 100%;
+  display: none; grid-template-columns: 1fr 1fr; gap: 0;
+  overflow: hidden; position: relative;
+  animation: modalIn .25s var(--ease);
+}
+@keyframes modalIn { from { opacity:0; transform: scale(.95); } to { opacity:1; transform: scale(1); } }
+.prod-modal__close {
+  position: absolute; top: 16px; right: 16px;
+  background: rgba(255,255,255,.15); border: none; color: #fff;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 16px;
+  cursor: pointer; z-index: 2;
+}
+.prod-modal__img {
+  background: #fff; display: flex;
+  align-items: center; justify-content: center;
+  padding: 24px; min-height: 300px;
+}
+.prod-modal__img img { max-width: 100%; max-height: 280px; object-fit: contain; }
+.prod-modal__info { padding: 36px 32px; display: flex; flex-direction: column; gap: 16px; }
+.prod-modal__title {
+  font-family: var(--font-title); font-size: 24px;
+  text-transform: uppercase; color: var(--text); margin: 0;
+}
+.prod-modal__specs { color: var(--muted); font-size: 15px; line-height: 1.7; padding-left: 18px; margin: 0; }
+.prod-modal__specs li { margin-bottom: 4px; }
+@media (max-width: 620px) {
+  .prod-modal { grid-template-columns: 1fr; }
+  .prod-modal__img { min-height: 200px; }
+}
+.subcat-nav {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.subcat-nav__label {
+  font-family: var(--font-title); font-size: 11px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--muted); align-self: center; margin-right: 4px;
+}
+.subcat-nav a {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 20px; border-radius: 999px; font-size: 13px;
+  font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  text-decoration: none; border: 2px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.65); transition: background .2s, color .2s, border-color .2s;
+}
+.subcat-nav a.is-active,
+.subcat-nav a:hover { background: #fff; color: var(--accent); border-color: #fff; }
+.cats { padding-top: 32px; }
+</style>
+<link rel="canonical" href="https://www.lcdo.com.co/productos/electrico/relojes.html" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav__inner">
+    <a href="../../index.html" class="nav__logo">
+      <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+    </a>
+    <a href="https://checkout.wompi.co/l/KP2qmb" target="_blank" rel="noopener" class="btn--pago"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg> Pago en línea</a>
+    <nav class="nav__links">
+      <a href="../../productos.html" class="is-active">Productos</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../contacto.html">Contacto</a>
+    </nav>
+    <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*.+Necesito+m%C3%A1s+informaci%C3%B3n+sobre+La+Casa+del+Overhaul+https%3A%2F%2Fwww.lcdo.com.co%2F" target="_blank" rel="noopener" class="btn btn--whatsapp nav__cta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    <button class="nav__burger" aria-label="Menú">&#9776;</button>
+  </div>
+</header>
+
+<!-- ============ PRODUCTOS ============ -->
+<section class="cats">
+  <div class="container">
+    <!-- ── BARRA DE BÚSQUEDA ── -->
+    <div class="prod-search">
+      <select class="prod-search__select" id="categorySelect">
+        <option value="">Todos los productos</option>
+        <optgroup label="Enfriamiento">
+          <option value="enfriamiento/patinestensores.html">↳ Patines Tensores</option>
+          <option value="enfriamiento/depositos.html">↳ Depósitos</option>
+          <option value="enfriamiento/tapas.html">↳ Tapas</option>
+          <option value="enfriamiento/ventiladores.html">↳ Ventiladores</option>
+        </optgroup>
+        <option value="caja.html">Caja</option>
+        <option value="transmision.html">Transmisión</option>
+        <optgroup label="Eléctrico">
+          <option value="electrico/relojes.html">↳ Relojes</option>
+          <option value="electrico/solenoides.html">↳ Solenoides</option>
+        </optgroup>
+        <option value="adhesivos.html">Adhesivos</option>
+        <option value="direccion.html">Dirección</option>
+      </select>
+      <input type="text" class="prod-search__input" id="prodSearchInput"
+             placeholder="Buscar por modelo, referencia...">
+      <button class="prod-search__btn" aria-label="Buscar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+        </svg>
+      </button>
+    </div>
+    <p class="prod-search__count" id="brandCount"></p>
+
+    <header class="section-head">
+      <nav aria-label="Breadcrumb" class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../../index.html" itemprop="item"><span itemprop="name">Inicio</span></a><meta itemprop="position" content="1" /></li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="../../productos.html" itemprop="item"><span itemprop="name">Productos</span></a><meta itemprop="position" content="2" /></li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">Eléctrico</span><meta itemprop="position" content="3" /></li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">Relojes</span><meta itemprop="position" content="4" /></li>
+  </ol>
+</nav>
+      <h2 class="section-title">ELÉCTRICO —<br/>RELOJES</h2>
+      <p class="section-sub">Relojes de temperatura, presión, tacómetros y voltímetros PAI para motores diésel MACK.</p>
+    </header>
+
+    <!-- Subcategory nav -->
+    <div class="subcat-nav">
+      <span class="subcat-nav__label">Eléctrico /</span>
+      <a href="relojes.html" class="is-active">Relojes</a>
+    </div>
+
+    <h3 style="font-family: var(--font-title); font-size: 18px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 24px;">Relojes & Voltímetros</h3>
+    <div class="sedes__grid" id="productGrid">
+
+      <!-- P1 -->
+      <div class="sede-card prod-card" data-brand="PAI" onclick="openModal('modal-1')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Reloj/RELOJ TEMPERATURA AGUA MACK.png" alt="Reloj Temperatura Agua Mack" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">PAI</p>
+          <h3 class="sede-card__name">Reloj Temperatura Agua Mack</h3>
+          <p class="sede-card__address">MACK — Ref OEM: 3MT246 / FGG-0514</p>
+          <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Temperatura+Agua+Mack+PAI+Ref+3MT246*." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="sede-card prod-card" data-brand="PAI" onclick="openModal('modal-2')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Reloj/RELOJ TEMPERATURA AGUA.png" alt="Reloj Temperatura Agua" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">PAI</p>
+          <h3 class="sede-card__name">Reloj Temperatura Agua</h3>
+          <p class="sede-card__address">MACK — Ref OEM: 7660-82326144 / FGG-0516</p>
+          <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Temperatura+Agua+PAI+Ref+7660-82326144*." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="sede-card prod-card" data-brand="PAI" onclick="openModal('modal-3')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Reloj/RELOJ PRESION ACEITE.png" alt="Reloj Presión Aceite" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">PAI</p>
+          <h3 class="sede-card__name">Reloj Presión Aceite</h3>
+          <p class="sede-card__address">MACK — Ref OEM: 70MT31P2 / FGG-0524</p>
+          <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Presi%C3%B3n+Aceite+PAI+Ref+70MT31P2*." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="sede-card prod-card" data-brand="PAI" onclick="openModal('modal-4')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Reloj/RELOJ TACOMETRO.png" alt="Reloj Tacómetro" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">PAI</p>
+          <h3 class="sede-card__name">Reloj Tacómetro</h3>
+          <p class="sede-card__address">MACK — Ref OEM: 17MT389P1 / FTA-0551</p>
+          <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Tac%C3%B3metro+PAI+Ref+17MT389P1*." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="sede-card prod-card" data-brand="PAI" onclick="openModal('modal-5')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Reloj/VOLTÍMETRO 51MS39.png" alt="Voltímetro 51MS39" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">PAI</p>
+          <h3 class="sede-card__name">Voltímetro 51MS39</h3>
+          <p class="sede-card__address">MACK — Ref OEM: S1MS39 / FGG-0561</p>
+          <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Volt%C3%ADmetro+51MS39+PAI+Ref+S1MS39*." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="sede-card prod-card" data-brand="PAI" onclick="openModal('modal-6')">
+        <div class="sede-card__img-wrap" style="aspect-ratio: 1/1; background: #fff;">
+          <img src="../../assets/img/Reloj/VOLTÍMETRO 51MS33.png" alt="Voltímetro 51MS33" class="sede-card__img" style="object-fit:contain; padding: 16px;" />
+          <span class="prod-card__hover">Ver detalle</span>
+          <img class="prod-brand-logo" src="../../assets/img/ESCUDO-PAI-2-300x300.png" alt="PAI">
+        </div>
+        <div class="sede-card__body">
+          <p class="sede-card__city">PAI</p>
+          <h3 class="sede-card__name">Voltímetro 51MS33</h3>
+          <p class="sede-card__address">MACK — Ref OEM: 51MS33 / FGG-0562</p>
+          <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Volt%C3%ADmetro+51MS33+PAI+Ref+51MS33*." target="_blank" rel="noopener" class="btn btn--primary" style="margin-top:auto;text-align:center;" onclick="event.stopPropagation()">Cotiza</a>
+        </div>
+      </div>
+
+    </div><!-- /productGrid -->
+  </div>
+</section>
+
+<!-- ============ MODALES ============ -->
+<div id="modal-overlay" class="prod-modal-overlay" onclick="closeModal()">
+
+  <!-- Modal 1 -->
+  <div id="modal-1" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Reloj/RELOJ TEMPERATURA AGUA MACK.png" alt="Reloj Temperatura Agua Mack" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">PAI</p>
+      <h3 class="prod-modal__title">Reloj Temperatura Agua Mack</h3>
+      <ul class="prod-modal__specs">
+        <li>Aplicación: <strong>MACK</strong></li>
+        <li>Ref OEM: <strong>3MT246</strong></li>
+        <li>Ref Alterna: <strong>FGG-0514</strong></li>
+        <li>Marca: <strong>PAI</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Temperatura+Agua+Mack+PAI+Ref+3MT246*." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div id="modal-2" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Reloj/RELOJ TEMPERATURA AGUA.png" alt="Reloj Temperatura Agua" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">PAI</p>
+      <h3 class="prod-modal__title">Reloj Temperatura Agua</h3>
+      <ul class="prod-modal__specs">
+        <li>Aplicación: <strong>MACK</strong></li>
+        <li>Ref OEM: <strong>7660-82326144</strong></li>
+        <li>Ref Alterna: <strong>FGG-0516</strong></li>
+        <li>Marca: <strong>PAI</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Temperatura+Agua+PAI+Ref+7660-82326144*." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div id="modal-3" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Reloj/RELOJ PRESION ACEITE.png" alt="Reloj Presión Aceite" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">PAI</p>
+      <h3 class="prod-modal__title">Reloj Presión Aceite</h3>
+      <ul class="prod-modal__specs">
+        <li>Aplicación: <strong>MACK</strong></li>
+        <li>Ref OEM: <strong>70MT31P2</strong></li>
+        <li>Ref Alterna: <strong>FGG-0524</strong></li>
+        <li>Marca: <strong>PAI</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Presi%C3%B3n+Aceite+PAI+Ref+70MT31P2*." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 4 -->
+  <div id="modal-4" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Reloj/RELOJ TACOMETRO.png" alt="Reloj Tacómetro" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">PAI</p>
+      <h3 class="prod-modal__title">Reloj Tacómetro</h3>
+      <ul class="prod-modal__specs">
+        <li>Aplicación: <strong>MACK</strong></li>
+        <li>Ref OEM: <strong>17MT389P1</strong></li>
+        <li>Ref Alterna: <strong>FTA-0551</strong></li>
+        <li>Marca: <strong>PAI</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Reloj+Tac%C3%B3metro+PAI+Ref+17MT389P1*." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 5 -->
+  <div id="modal-5" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Reloj/VOLTÍMETRO 51MS39.png" alt="Voltímetro 51MS39" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">PAI</p>
+      <h3 class="prod-modal__title">Voltímetro 51MS39</h3>
+      <ul class="prod-modal__specs">
+        <li>Aplicación: <strong>MACK</strong></li>
+        <li>Ref OEM: <strong>S1MS39</strong></li>
+        <li>Ref Alterna: <strong>FGG-0561</strong></li>
+        <li>Marca: <strong>PAI</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Volt%C3%ADmetro+51MS39+PAI+Ref+S1MS39*." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+  <!-- Modal 6 -->
+  <div id="modal-6" class="prod-modal" onclick="event.stopPropagation()">
+    <button class="prod-modal__close" onclick="closeModal()">✕</button>
+    <div class="prod-modal__img">
+      <img src="../../assets/img/Reloj/VOLTÍMETRO 51MS33.png" alt="Voltímetro 51MS33" />
+    </div>
+    <div class="prod-modal__info">
+      <p class="sede-card__city">PAI</p>
+      <h3 class="prod-modal__title">Voltímetro 51MS33</h3>
+      <ul class="prod-modal__specs">
+        <li>Aplicación: <strong>MACK</strong></li>
+        <li>Ref OEM: <strong>51MS33</strong></li>
+        <li>Ref Alterna: <strong>FGG-0562</strong></li>
+        <li>Marca: <strong>PAI</strong></li>
+      </ul>
+      <a href="https://wa.me/573212101283?text=Hola+*La+Casa+del+Overhaul*,+me+interesa+cotizar+el+*Volt%C3%ADmetro+51MS33+PAI+Ref+51MS33*." target="_blank" rel="noopener" class="btn btn--whatsapp btn--lg" style="width:100%;justify-content:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Cotiza</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <div class="nav__logo">
+        <img src="../../assets/img/cropped-logo-LCDH-1.png" alt="La Casa del Overhaul" class="nav__logo-img" />
+      </div>
+    </div>
+    <div>
+      <h4>Catálogo</h4>
+      <a href="../../productos/motor.html">Motor</a>
+      <a href="../../productos/caja.html">Caja</a>
+      <a href="../../productos/transmision.html">Transmisión</a>
+      <a href="../../productos/direccion.html">Dirección</a>
+      <a href="../../productos/electrico.html">Eléctrico</a>
+      <a href="../../productos/adhesivos.html">Adhesivos</a>
+      <a href="../../productos/enfriamiento.html">Enfriamiento</a>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <a href="../../nosotros.html">Nosotros</a>
+      <a href="../../redes.html">Nuestras Redes</a>
+      <a href="../../contacto.html">Contacto</a>
+    </div>
+    <div>
+      <h4>Visítanos</h4>
+      <p class="footer__sede">📍 Bogotá — Estanzuela</p>
+      <p>Cra 15 # 7-20, Bogotá, Cundinamarca</p>
+      <p class="footer__sede">📍 Bogotá — El Dorado</p>
+      <p>Tv. 93 #53-32 Parque Empresarial El Dorado, Bodega 10</p>
+      <p class="footer__sede">📍 Barranquilla</p>
+      <p>Vía 40 #73-290, Bodega 6, Barranquilla, Atlántico</p>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 La Casa del Overhaul</span>
+    <span>Bogotá, Colombia</span>
+  </div>
+</footer>
+
+<script src="../../script.js?v=3"></script>
+<script>
+function openModal(id) {
+  document.querySelectorAll('.prod-modal').forEach(m => m.style.display = 'none');
+  document.getElementById(id).style.display = 'grid';
+  document.getElementById('modal-overlay').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('is-open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+</script>
+
+<script src="../../assets/js/search-index.js?v=1"></script>
+<script src="../../assets/js/global-search.js?v=1"></script>
+</body>
+</html>
