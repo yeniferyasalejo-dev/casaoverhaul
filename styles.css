@@ -36,6 +36,7 @@
   --accent-rgb: 30, 77, 156;
   --brand-gray: #494c50;
   --brand-light: #ebebeb;
+  --bg-dark-gray: #2b2d30; /* gris oscuro — fondo Contacto y Redes */
   --maxw: 1280px;
   --pad: clamp(20px, 4vw, 56px);
   --r: 4px;
@@ -1301,7 +1302,7 @@ h3, h4 {
 /* ============ REDES PAGE ============ */
 .redes {
   padding: 80px 0 120px;
-  background: var(--bg);
+  background: var(--bg-dark-gray);
   border-top: 1px solid var(--line);
 }
 .redes .container {
@@ -1445,7 +1446,7 @@ h3, h4 {
 /* ============ SEDES ============ */
 .sedes {
   padding: 96px 0 100px;
-  background: var(--bg);
+  background: var(--bg-dark-gray);
 }
 .sedes__head {
   margin-bottom: 56px;
@@ -1574,7 +1575,7 @@ h2.sede-card__name { font-weight: 700; font-style: normal; letter-spacing: norma
 /* ============ CONTACTO PAGE ============ */
 .contacto {
   padding: 100px 0 120px;
-  background: var(--bg);
+  background: var(--bg-dark-gray);
   border-top: 1px solid var(--line);
 }
 .contacto__grid {
@@ -1783,3 +1784,32 @@ h2.sede-card__name { font-weight: 700; font-style: normal; letter-spacing: norma
 .feature__grid > * { min-width: 0; }
 .feature__copy h2 { overflow-wrap: break-word; }
 html, body { overflow-x: clip; }
+
+
+/* ============ AJUSTES NOSOTROS (nov 2026) ============ */
+.nowrap { white-space: nowrap; }
+/* Foto del camión completa, sin recorte */
+.about--split-reverse .about__title { font-size: clamp(34px, 4.2vw, 64px); }
+.about--split-reverse .about__media {
+  min-height: 0;
+  align-self: start;
+  position: sticky;
+  top: 90px;
+}
+.about--split-reverse .about__media img {
+  position: static;
+  width: 100%;
+  height: auto;
+}
+/* Títulos de los carruseles en una sola línea */
+.section-head:has(.section-title--oneline) { max-width: 100%; }
+.section-title--oneline { white-space: nowrap; font-size: clamp(26px, 3.6vw, 54px); }
+/* Logos más grandes */
+.aliado-logo { height: 76px; max-width: 230px; padding: 12px 26px; border-radius: 10px; }
+.aliados-track { gap: 24px; }
+.marcas-section--white .brands-track img { height: 76px; padding: 12px 26px; border-radius: 10px; }
+@media (max-width: 880px) {
+  .section-title--oneline { white-space: normal; }
+  .about--split-reverse .about__media { position: relative; }
+  .aliado-logo, .marcas-section--white .brands-track img { height: 56px; padding: 10px 18px; }
+}
